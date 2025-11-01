@@ -13,6 +13,7 @@
     pkgs.brave
     pkgs.flameshot
     pkgs.brightnessctl
+    pkgs.rofi-power-menu
   ];  
   
 #  programs.home-manager.enable = true;
@@ -42,8 +43,6 @@
 
   programs.rofi = {
     enable = true;
-    plugins = [pkgs.rofi-emoji];
-#    theme = inputs.rofi-merah-custom;
   };
 
   programs.btop = {

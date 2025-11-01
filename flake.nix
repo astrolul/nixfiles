@@ -20,10 +20,10 @@
     slstatus-src.url = "github:astrolul/slstatus";
     dmenu-src.url = "github:astrolul/dmenu";
 
-    rofi-merah-custom = {
-      url = "path:/home/astrolul/dotfiles/rofi/.config/rofi/themes/merah.rasi";
-      flake = false;
-    };
+#    rofi-merah-custom = {
+#      url = "path:/home/astrolul/dotfiles/rofi/.config/rofi/themes/merah.rasi";
+#      flake = false;
+#    };
   };
 
   outputs = { self, nixpkgs, nvf, home-manager, ... }@inputs: {

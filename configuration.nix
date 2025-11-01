@@ -98,13 +98,9 @@
     git
     stow
     nerd-fonts.terminess-ttf
-#    bibata-cursors
     feh
     pavucontrol
     flashprog
-    unixtools.xxd
-#    st
-#    inputs.st-src.packages.${pkgs.system}.default
     inputs.dmenu-src.packages.${pkgs.system}.default
     inputs.slstatus-src.packages.${pkgs.system}.default
     (inputs.st-src.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: rec {
