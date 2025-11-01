@@ -7,6 +7,7 @@
   
   home.packages = [
     pkgs.fastfetch
+    pkgs.pfetch
     pkgs.htop
     pkgs.cmus
     pkgs.nerd-fonts.terminess-ttf
@@ -15,6 +16,7 @@
     pkgs.brightnessctl
     pkgs.rofi-power-menu
     pkgs.weechat
+    pkgs.streamrip
   ];  
   
   programs.bash = {
@@ -30,6 +32,11 @@
   programs.cmus = {
     enable = true;
     theme = "gruvbox";
+    extraConfig = ''
+      set output_plugin=pulse
+      set show_current_bitrate=true
+      add ~/music
+    '';
   };
 
   programs.fastfetch = {
@@ -70,6 +77,8 @@
     shellAliases = {
       ls = "ls -la";
       mkdir = "mkdir -p";
+      cp = "cp -r";
+      nr = "sudo nixos-rebuild switch --flake /home/astrolul/nixos#nixos";
     };
   };
 
