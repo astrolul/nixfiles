@@ -17,6 +17,7 @@
     pkgs.rofi-power-menu
     pkgs.weechat
     pkgs.streamrip
+    pkgs.hugo
   ];  
   
   programs.bash = {

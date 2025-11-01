@@ -143,6 +143,7 @@
       vim.statusline.lualine.enable = true;
       vim.autocomplete.nvim-cmp.enable = true;
       vim.languages.nix.enable = true;
+      vim.languages.markdown.enable = true;
       vim.lsp.enable = true;
       vim.languages.enableTreesitter = true;
       vim.extraPlugins = {
@@ -191,7 +192,7 @@
         # Fetch our custom config.h from a URL (pin with a fixed sha256)
         configFile = pkgs.fetchurl {
           url = "https://raw.githubusercontent.com/astrolul/dwm/refs/heads/main/config.h";
-          sha256 = "0ydxvmdyvi9fd784icpaf7w3jp82dqp77i1jvkysmvjc131ghxyp";
+          sha256 = "1s6fszpf2ijmckv4rdq01c72vyy1cd34c97jj82g19m8p4xj17nh";
         };
 
         # In postPatch, copy the fetched config into place before building
