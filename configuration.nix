@@ -14,6 +14,7 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
+  boot.kernelParams = [ "iomem=relaxed" ];
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -133,7 +134,9 @@
   services.displayManager.ly.enable = true;
   
   services.xserver.displayManager.sessionCommands = ''
-    ${pkgs.feh}/bin/feh --bg-fill /home/astrolul/wallpapers/wallhaven-1pd22w.png &
+    ${pkgs.curl}/bin/curl -L -o /home/astrolul/.cache/wallpaper.png \
+      "https://raw.githubusercontent.com/astrolul/dotfiles/refs/heads/x230/wallpapers/wallpapers/wallhaven-1pd22w.png"
+    ${pkgs.feh}/bin/feh --bg-fill /home/astrolul/.cache/wallpaper.png &
     slstatus &
   '';
   
