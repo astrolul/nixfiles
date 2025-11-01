@@ -11,7 +11,7 @@
     };
 
     dwm-src = {
-      url = "path:/home/astrolul/dotfiles/suckless/suckless/dwm-6.6";
+      url = "github:astrolul/dwm";
       flake = false;
     };
 

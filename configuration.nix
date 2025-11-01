@@ -73,12 +73,12 @@
     packages = with pkgs; [];
   };
   
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "astrolul" = import ./home.nix;
-    };
-  };
+#  home-manager = {
+#    extraSpecialArgs = { inherit inputs; };
+#    users = {
+#      "astrolul" = import ./home.nix;
+#    };
+#  };
 
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
