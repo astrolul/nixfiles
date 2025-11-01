@@ -74,13 +74,6 @@
     packages = with pkgs; [];
   };
   
-#  home-manager = {
-#    extraSpecialArgs = { inherit inputs; };
-#    users = {
-#      "astrolul" = import ./home.nix;
-#    };
-#  };
-
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
   environment.variables = {
@@ -191,20 +184,34 @@
     dpi = 100;
     windowManager.dwm = {
       enable = true;
-      package = pkgs.dwm.overrideAttrs {
+      package = pkgs.dwm.overrideAttrs (oldAttrs: rec {
+        # Use the dwm source from our flake input
         src = inputs.dwm-src;
-	buildInputs = with pkgs; [
-	  xorg.libX11
-	  xorg.libXft
-	  xorg.libXinerama
-	  imlib2
-	  freetype
-	  harfbuzz
-	  fontconfig
+
+        # Fetch our custom config.h from a URL (pin with a fixed sha256)
+        configFile = pkgs.fetchurl {
+          url = "https://raw.githubusercontent.com/astrolul/dwm/refs/heads/main/config.h";
+          sha256 = "0ydxvmdyvi9fd784icpaf7w3jp82dqp77i1jvkysmvjc131ghxyp";
+        };
+
+        # In postPatch, copy the fetched config into place before building
+        postPatch = (oldAttrs.postPatch or "") + ''
+          cp ${configFile} config.h
+        '';
+
+        # Preserve the required build inputs for dwm
+        buildInputs = with pkgs; [
+          xorg.libX11
+          xorg.libXft
+          xorg.libXinerama
+          imlib2
+          freetype
+          harfbuzz
+          fontconfig
         ];
-      };
-    };
-  };
+     });
+   };  
+};
 
   services.libinput = {
     enable = true;

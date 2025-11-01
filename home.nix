@@ -14,14 +14,9 @@
     pkgs.flameshot
     pkgs.brightnessctl
     pkgs.rofi-power-menu
+    pkgs.weechat
   ];  
   
-#  programs.home-manager.enable = true;
-  
-#  imports = [
-#      ./suckless.nix
-#  ];
-
   programs.bash = {
     enable = true;
   };
@@ -43,6 +38,7 @@
 
   programs.rofi = {
     enable = true;
+    plugins = [pkgs.rofi-emoji];
   };
 
   programs.btop = {
@@ -79,24 +75,15 @@
 
  programs.tmux = {
   enable = true;
-  terminal = "xterm-256color";
+  terminal = "tmux-256color";
   shell = "${pkgs.zsh}/bin/zsh";
   extraConfig = ''
-    set-option -sa terminal-overrides ",xterm-256color*:Tc"
+    set-option -sa terminal-overrides ",tmux-256color*:Tc"
     set -g status-style bg=default
     set -g status-fg "#fabd2f"
   '';
  };
 
   services.dunst.enable = true;
-
-# home.pointerCursor = {
-#   enable = true;
-#   gtk.enable = true;
-#   x11.enable = true;
-#   package = pkgs.bibata-cursors;
-#   name = "Bibata-Modern-Ice";
-#   size = 24;
-# };
 
 }
