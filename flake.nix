@@ -38,7 +38,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             extraSpecialArgs = {  # Pass individual srcs for suckless.nix
-              inherit (inputs) st-src dmenu-src slstatus-src rofi-merah-custom;
+              inherit (inputs) rofi-merah-custom;
             };
             users.astrolul.imports = [ ./home.nix ];
           };

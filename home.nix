@@ -17,9 +17,9 @@
   
 #  programs.home-manager.enable = true;
   
-  imports = [
-      ./suckless.nix
-  ];
+#  imports = [
+#      ./suckless.nix
+#  ];
 
   programs.bash = {
     enable = true;

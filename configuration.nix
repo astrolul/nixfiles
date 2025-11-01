@@ -101,6 +101,9 @@
     feh
     pavucontrol
     flashprog
+    inputs.st-src.packages.${pkgs.system}.default
+    inputs.dmenu-src.packages.${pkgs.system}.default
+    inputs.slstatus-src.packages.${pkgs.system}.default
   ];
   
   programs.zsh.enable = true;
