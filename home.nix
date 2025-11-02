@@ -47,6 +47,7 @@
   programs.rofi = {
     enable = true;
     plugins = [pkgs.rofi-emoji];
+    theme = "/home/astrolul/merah.rasi";
   };
 
   programs.btop = {
