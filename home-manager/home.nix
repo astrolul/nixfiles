@@ -18,6 +18,8 @@
     pkgs.weechat
     pkgs.streamrip
     pkgs.hugo
+    pkgs.mpv
+    pkgs.yt-dlp
   ];  
   
   programs.bash = {
@@ -80,7 +82,6 @@
       ls = "ls -la";
       mkdir = "mkdir -p";
       cp = "cp -r";
-      nr = "sudo nixos-rebuild switch --flake /home/astrolul/nixos#nixos";
     };
   };
 
