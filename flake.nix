@@ -37,7 +37,7 @@
       };
 
       # New entry for another machine (e.g., "laptop")
-      laptop = nixpkgs.lib.nixosSystem {
+      surface = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/surface/configuration.nix  # Point to the new machine's config
