@@ -14,10 +14,20 @@
     ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
-  boot.kernelParams = [ "iomem=relaxed" ];
+
+  boot.loader = {
+    efi.canTouchEfiVariables = true;  # Required for UEFI
+    grub = {
+      enable = true;
+      efiSupport = true;  # Enable EFI mode
+      device = "nodev";  # No device for UEFI (uses EFI partition instead)
+      useOSProber = true;  # If dual-booting
+      # Optional: Extra GRUB config
+      # extraEntries = '' ... '';  # For custom boot entries
+    };
+    # Optional: EFI mount point if customized
+    # efi.efiSysMountPoint = "/boot/efi";
+  };
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
