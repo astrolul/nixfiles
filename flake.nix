@@ -6,44 +6,56 @@
     nvf.url = "github:notashelf/nvf";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";  # Pin to stable branch for compatibility
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dwm-src = {
-      url = "github:astrolul/dwm";
-      flake = false;
-    };
-
-    # New GitHub flake inputs for suckless tools
-    st-src.url = "github:astrolul/st";  # Adjust to your repo name/ref (e.g., /v0.9.3)
-    slstatus-src.url = "github:astrolul/slstatus";
-    dmenu-src.url = "github:astrolul/dmenu";
-
-    rofi-merah-custom = {
-      url = "path:./merah.rasi";
-      flake = false;
-    };
+    dwm-src = { url = "github:astrolul/dwm"; flake = false; };
+    st-src = { url = "github:astrolul/st"; flake = false; };
+    slstatus-src = { url = "github:astrolul/slstatus"; flake = false; };
+    dmenu-src = { url = "github:astrolul/dmenu"; flake = false; };
+    rofi-merah-custom = { url = "path:./merah.rasi"; flake = false; };
   };
 
   outputs = { self, nixpkgs, nvf, home-manager, ... }@inputs: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit  inputs; };  # Pass all inputs (including srcs) to system modules like configuration.nix
-      modules = [
-        ./configuration.nix
-        home-manager.nixosModules.default
-        nvf.nixosModules.default
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            extraSpecialArgs = {  # Pass individual srcs for suckless.nix
-              inherit (inputs) rofi-merah-custom;
+    nixosConfigurations = {
+      nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/nixos/configuration.nix
+          home-manager.nixosModules.default
+          nvf.nixosModules.default
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = { inherit (inputs) rofi-merah-custom; };
+              users.astrolul.imports = [ ./home-manager/home.nix ];
             };
-            users.astrolul.imports = [ ./home.nix ];
-          };
-        }
-      ];
+          }
+        ];
+      };
+
+      # New entry for another machine (e.g., "laptop")
+      laptop = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/surface/configuration.nix  # Point to the new machine's config
+          home-manager.nixosModules.default
+          nvf.nixosModules.default
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = { inherit (inputs) rofi-merah-custom; };
+              users.astrolul.imports = [ ./home-manager/home.nix ];  # Reuse shared Home Manager, or customize if needed
+            };
+          }
+        ];
+      };
+
+      # Add as many as needed, e.g.:
+      # server = nixpkgs.lib.nixosSystem { ... };  # Similar structure
     };
   };
 }

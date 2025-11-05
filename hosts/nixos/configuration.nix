@@ -8,6 +8,9 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../common/users.nix 
+      ../../common/system.nix 
+      ../../common/packages.nix 
     ];
 
   # Bootloader.
@@ -28,85 +31,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "Europe/London";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_GB.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_GB.UTF-8";
-    LC_IDENTIFICATION = "en_GB.UTF-8";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_GB.UTF-8";
-    LC_NAME = "en_GB.UTF-8";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_GB.UTF-8";
-    LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
-  };
-  
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.dates = "weekly";
-
-  nix.gc.automatic = true;
-  nix.gc.dates = "daily";
-  nix.gc.options = "--delete-older-than 14d";
-  nix.settings.auto-optimise-store = true;
-  
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "gb";
-    variant = "";
-  };
-
-  # Configure console keymap
-  console.keyMap = "uk";
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.astrolul = {
-    isNormalUser = true;
-    description = "astrolul";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
-  };
-  
-  users.defaultUserShell = pkgs.zsh;
-  environment.shells = with pkgs; [ zsh ];
-  environment.variables = {
-    EDITOR="nvim";
-    SUDO_EDITOR="nvim";
-  };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    wget
-    git
-    stow
-    nerd-fonts.terminess-ttf
-    feh
-    pavucontrol
-    flashprog
-    pciutils
-    inputs.dmenu-src.packages.${pkgs.system}.default
-    inputs.slstatus-src.packages.${pkgs.system}.default
-    (inputs.st-src.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: rec {
-      configFile = fetchurl {
-        url = "https://raw.githubusercontent.com/astrolul/st/main/config.h";  # Adjust branch/ref if needed (e.g., /some-commit/config.h)
-        sha256 = "1cx96pq7sgs3i2zpgln0zwlbqnsndvv61l788dlbas2pc6wwy9y9";  # Replace with actual hash (see below)
-      };
-      postPatch = (oldAttrs.postPatch or "") + "\n cp ${configFile} config.h";
-    }))
-  ];
-  
-  programs.zsh.enable = true;
 
   hardware.enableAllFirmware = true;
   hardware.bluetooth.enable = true;
