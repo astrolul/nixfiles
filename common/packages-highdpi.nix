@@ -10,10 +10,10 @@
     flashprog
     pciutils
     inputs.slstatus-src.packages.${pkgs.system}.default
-    (inputs.st-src.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: rec {
+    (inputs.st-secondary-src.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: rec {
       configFile = fetchurl {
-        url = "https://raw.githubusercontent.com/astrolul/st/main/config.h";
-        sha256 = "1cx96pq7sgs3i2zpgln0zwlbqnsndvv61l788dlbas2pc6wwy9y9";
+        url = "https://raw.githubusercontent.com/astrolul/st/secondary/config.h";
+        sha256 = "0xnal522sp13w3hi9bkbwyznchhdxifdvhdid7gzi5n69gh9ypsl";
       };
       postPatch = (oldAttrs.postPatch or "") + "\n cp ${configFile} config.h";
     }))
