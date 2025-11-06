@@ -10,7 +10,7 @@
       ./hardware-configuration.nix
       ../../common/users.nix 
       ../../common/system.nix 
-      ../../common/packages.nix 
+      ../../common/packages-highdpi.nix 
     ];
 
   # Bootloader.
@@ -124,17 +124,17 @@
   services.xserver = {
     enable = true;
     autorun = true;
-    dpi = 100;
+    dpi = 160;
     windowManager.dwm = {
       enable = true;
       package = pkgs.dwm.overrideAttrs (oldAttrs: rec {
         # Use the dwm source from our flake input
-        src = inputs.dwm-src;
+        src = inputs.dwm-secondary-src;
 
         # Fetch our custom config.h from a URL (pin with a fixed sha256)
         configFile = pkgs.fetchurl {
-          url = "https://raw.githubusercontent.com/astrolul/dwm/refs/heads/main/config.h";
-          sha256 = "1s6fszpf2ijmckv4rdq01c72vyy1cd34c97jj82g19m8p4xj17nh";
+          url = "https://raw.githubusercontent.com/astrolul/dwm/refs/heads/secondary/config.h";
+          sha256 = "137jbdazrc0grc8rayi60if3mjfjsgphplj1lfsvvp3n73598ndx";
         };
 
         # In postPatch, copy the fetched config into place before building

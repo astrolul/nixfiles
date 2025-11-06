@@ -20,6 +20,8 @@
     pkgs.hugo
     pkgs.mpv
     pkgs.yt-dlp
+    pkgs.statix
+    pkgs.thonny
   ];  
   
   programs.bash = {

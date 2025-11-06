@@ -11,9 +11,11 @@
     };
 
     dwm-src = { url = "github:astrolul/dwm"; flake = false; };
+    dwm-secondary-src = { url = "github:astrolul/dwm/secondary"; flake = false; };
     st-src = { url = "github:astrolul/st"; };
     slstatus-src = { url = "github:astrolul/slstatus"; };
     dmenu-src = { url = "github:astrolul/dmenu"; };
+    dmenu-secondary-src = { url = "github:astrolul/dmenu/secondary"; };
     rofi-merah-custom = { url = "path:./merah.rasi"; flake = false; };
   };
 
