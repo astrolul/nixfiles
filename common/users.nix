@@ -3,7 +3,7 @@
   users.users.astrolul = {
     isNormalUser = true;
     description = "astrolul";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [];
   };
 

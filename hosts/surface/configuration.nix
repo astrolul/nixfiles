@@ -22,6 +22,7 @@
       efiSupport = true;  # Enable EFI mode
       device = "nodev";  # No device for UEFI (uses EFI partition instead)
       useOSProber = true;  # If dual-booting
+      memtest86.enable = true;
       # Optional: Extra GRUB config
       # extraEntries = '' ... '';  # For custom boot entries
     };
@@ -72,6 +73,8 @@
   '';
   
   programs.dconf.enable = true;
+  
+  programs.virt-manager.enable = true;
 
   programs.nvf = {
     enable = true;
@@ -134,7 +137,7 @@
         # Fetch our custom config.h from a URL (pin with a fixed sha256)
         configFile = pkgs.fetchurl {
           url = "https://raw.githubusercontent.com/astrolul/dwm/refs/heads/secondary/config.h";
-          sha256 = "137jbdazrc0grc8rayi60if3mjfjsgphplj1lfsvvp3n73598ndx";
+          sha256 = "127l1jjnhsv94rn3s31nyhbksarj7fgyjcqfaf1m04mrcz1cbz5f";
         };
 
         # In postPatch, copy the fetched config into place before building

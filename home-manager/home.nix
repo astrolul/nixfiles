@@ -11,7 +11,6 @@
     pkgs.htop
     pkgs.cmus
     pkgs.nerd-fonts.terminess-ttf
-    pkgs.brave
     pkgs.flameshot
     pkgs.brightnessctl
     pkgs.rofi-power-menu
@@ -22,8 +21,10 @@
     pkgs.yt-dlp
     pkgs.statix
     pkgs.thonny
+    pkgs.gemini-cli
+    pkgs.ungoogled-chromium
   ];  
-  
+
   programs.bash = {
     enable = true;
   };

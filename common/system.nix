@@ -36,4 +36,8 @@
   console.keyMap = "uk";
 
   nixpkgs.config.allowUnfree = true;
+
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+
 }
