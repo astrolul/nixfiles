@@ -9,6 +9,8 @@
     pavucontrol
     flashprog
     pciutils
+    ffmpeg
+    tree
     inputs.slstatus-src.packages.${pkgs.system}.default
     (inputs.st-secondary-src.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: rec {
       configFile = fetchurl {

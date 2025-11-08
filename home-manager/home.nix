@@ -23,6 +23,10 @@
     pkgs.thonny
     pkgs.gemini-cli
     pkgs.ungoogled-chromium
+    pkgs.pcmanfm
+    pkgs.xarchiver
+    pkgs.unrar
+    pkgs.nicotine-plus
   ];  
 
   programs.bash = {

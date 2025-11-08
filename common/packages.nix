@@ -9,6 +9,8 @@
     pavucontrol
     flashprog
     pciutils
+    ffmpeg
+    tree
     inputs.dmenu-src.packages.${pkgs.system}.default
     inputs.slstatus-src.packages.${pkgs.system}.default
     (inputs.st-src.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: rec {
