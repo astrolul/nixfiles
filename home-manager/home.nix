@@ -27,6 +27,7 @@
     pkgs.xarchiver
     pkgs.unrar
     pkgs.nicotine-plus
+    pkgs.lxappearance
   ];  
 
   programs.bash = {
@@ -103,6 +104,25 @@
   '';
  };
 
-  services.dunst.enable = true;
+ services.dunst.enable = true;
+
+ gtk = {
+   enable = true;
+   theme = {
+     name = "gruvbox-dark";
+     package = pkgs.gruvbox-dark-gtk;
+   };
+ };
+
+ home.pointerCursor = {
+   gtk.enable = true;   # Ensures GTK apps (including those on Wayland) use this cursor
+   x11.enable = true;   # Registers the cursor for X11 sessions (e.g., root window, WM)
+   x11.defaultCursor = "left_ptr";
+   name = "Bibata-Modern-Ice";
+   package = pkgs.bibata-cursors;
+   size = 24;
+ };
+
+ xdg.configFile."gtk-3.0/settings.ini".force = true;
 
 }
