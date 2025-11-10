@@ -39,12 +39,6 @@
         ];
       };
 
-      # Add this new section for devShells
-      devShells = nixpkgs.lib.genAttrs [ "x86_64-linux" ] (system: let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in {
-        default = (import ./shell.nix { inherit pkgs; });
-      });
 
       # New entry for another machine (e.g., "laptop")
       surface = nixpkgs.lib.nixosSystem {
@@ -63,9 +57,15 @@
           }
         ];
       };
+    };
 
       # Add as many as needed, e.g.:
       # server = nixpkgs.lib.nixosSystem { ... };  # Similar structure
-    };
-  };
+      # Add this new section for devShells
+      devShells = nixpkgs.lib.genAttrs [ "x86_64-linux" ] (system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in {
+        default = (import ./shell.nix { inherit pkgs; });
+      });
+   };
 }

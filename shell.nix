@@ -1,7 +1,7 @@
 { pkgs ? import <nixpkgs> {} }:
 
 pkgs.mkShell {
-  packages = [ pkgs.gcc pkgs.gdb pkgs.make pkgs.pkg-config ];
+  packages = [ pkgs.gcc pkgs.gdb pkgs.gnumake pkgs."pkg-config" pkgs.ncurses ];
 
   shellHook = ''
     echo "Welcome to your C development environment."
