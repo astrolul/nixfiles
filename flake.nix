@@ -20,7 +20,10 @@
     rofi-merah-custom = { url = "path:./merah.rasi"; flake = false; };
   };
 
-  outputs = { self, nixpkgs, nvf, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, nvf, home-manager, ... }@inputs: let
+    system = "x86_64-linux";  # Hardcode your system here (e.g., "aarch64-linux" for ARM)
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
@@ -59,6 +62,10 @@
 
       # Add as many as needed, e.g.:
       # server = nixpkgs.lib.nixosSystem { ... };  # Similar structure
+      devShells.x86_64-linux = {
+        default = import ./shell.nix { inherit pkgs; };  # Imports shell.nix with flake's pkgs
+        # Optional: Add named variants, e.g., c-dev = import ./shell.nix { inherit pkgs; };
+      };
     };
   };
 }

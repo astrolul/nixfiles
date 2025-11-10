@@ -55,7 +55,7 @@
     rofi = {
       enable = true;
       plugins = [pkgs.rofi-emoji];
-      theme = "/home/astrolul/merah.rasi";
+      theme = "/home/astrolul/nixos/misc/merah.rasi";
     };
     btop = {
       enable = true;
