@@ -29,6 +29,7 @@
     nicotine-plus
     lxappearance
     gimp3-with-plugins
+    bibletime
   ];  
 
   programs = {
