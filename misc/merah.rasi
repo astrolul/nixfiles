@@ -5,7 +5,7 @@
 // ================================================ */
 
 * {
-    font: "TerminessNerdFont Bold 26";
+    font: "FiraCode Nerd Font 24";
     foreground: #fbf1c7;
     background-color: #282828;
     active-background: #d79921;

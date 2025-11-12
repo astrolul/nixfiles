@@ -9,7 +9,9 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../common/users.nix 
-      ../../common/system.nix 
+      ../../common/system.nix
+      ../../common/programs.nix
+      ../../common/services.nix
       ../../common/packages-highdpi.nix 
     ];
 
@@ -45,83 +47,11 @@
 
   hardware.enableAllFirmware = true;
   hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
-
-  services.pipewire.wireplumber.extraConfig.bluetoothEnhancements = {
-    "monitor.bluez.properties" = {
-      "bluez5.enable-sbc-xq" = true;
-      "bluez5.enable-msbc" = true;
-      "bluez5.enable-hw-volume" = true;
-      "bluez5.roles" = [ "a2dp_sink" "a2dp_source" "hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag" ];
-      "bluez5.codecs" = [ "sbc" "sbc_xq" "aac" "aptx" "aptx_hd" "ldac" ];
-    };
-  };
-
-  services.pipewire.wireplumber.extraConfig."11-bluetooth-policy" = {
-    "wireplumber.settings" = {
-      "bluetooth.autoswitch-to-headset-profile" = false;
-    };
-  };
-
-  services.displayManager.ly.enable = true;
   
-  services.xserver.displayManager.sessionCommands = ''
-    ${pkgs.curl}/bin/curl -L -o /home/astrolul/.cache/wallpaper.png \
-      "https://raw.githubusercontent.com/astrolul/dotfiles/refs/heads/x230/wallpapers/wallpapers/wallhaven-1pd22w.png"
-    ${pkgs.feh}/bin/feh --bg-fill /home/astrolul/.cache/wallpaper.png &
-    slstatus &
-  '';
-  
-  programs.dconf.enable = true;
-  
-  programs.virt-manager.enable = true;
-
-  programs.nvf = {
-    enable = true;
-    enableManpages = true;
-    settings = {
-      vim.theme.enable = true;
-      vim.theme.name = "gruvbox";
-      vim.theme.style = "dark";
-      vim.highlight.Normal.bg = null;
-      vim.highlight.Normal.ctermbg = null;
-      vim.statusline.lualine.enable = true;
-      vim.autocomplete.nvim-cmp.enable = true;
-      vim.languages.nix.enable = true;
-      vim.languages.markdown.enable = true;
-      vim.lsp.enable = true;
-      vim.languages.enableTreesitter = true;
-      vim.extraPlugins = {
-        vim-css-color = {
-          package = pkgs.vimPlugins.vim-css-color;
-        };
-      };
-    };
-  };
-
   qt = {
     enable = true;
     platformTheme = "gtk2";
 #    style.name = "gtk2";
-  };
-
-  services.picom = {
-    enable = true;
-    backend = "xrender";
-    vSync = true;
-  };
-
-  services.unclutter = {
-    enable = true;
-    timeout = 3;
-  };
-
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
   };
 
   services.xserver = {
@@ -137,7 +67,7 @@
         # Fetch our custom config.h from a URL (pin with a fixed sha256)
         configFile = pkgs.fetchurl {
           url = "https://raw.githubusercontent.com/astrolul/dwm/refs/heads/secondary/config.h";
-          sha256 = "127l1jjnhsv94rn3s31nyhbksarj7fgyjcqfaf1m04mrcz1cbz5f";
+          sha256 = "1yxy4d4jvgf5v10mxmfylh0ii92r15bbaszx5nrp0pbr2k0wpqpm";
         };
 
         # In postPatch, copy the fetched config into place before building
@@ -159,22 +89,6 @@
    };  
 };
 
-  services.libinput = {
-    enable = true;
-    touchpad.tapping = false;
-  };
-
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    xorg.libX11
-    xorg.libXft
-    xorg.libXinerama
-    imlib2
-    freetype
-    harfbuzz
-    fontconfig
-  ];
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -182,11 +96,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

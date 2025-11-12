@@ -17,22 +17,21 @@
     slstatus-src = { url = "github:astrolul/slstatus"; };
     dmenu-src = { url = "github:astrolul/dmenu"; };
     dmenu-secondary-src = { url = "github:astrolul/dmenu/secondary"; };
-    rofi-merah-custom = { url = "path:./merah.rasi"; flake = false; };
   };
 
   outputs = { self, nixpkgs, nvf, home-manager, ... }@inputs: {
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
+      x230 = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
-          ./hosts/nixos/configuration.nix
+          ./hosts/x230/configuration.nix
           home-manager.nixosModules.default
           nvf.nixosModules.default
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = { inherit (inputs) rofi-merah-custom; };
+              extraSpecialArgs = { inherit inputs; };
               users.astrolul.imports = [ ./home-manager/home.nix ];
             };
           }
@@ -51,7 +50,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = { inherit (inputs) rofi-merah-custom; };
+              extraSpecialArgs = { inherit inputs; };
               users.astrolul.imports = [ ./home-manager/home.nix ];  # Reuse shared Home Manager, or customize if needed
             };
           }

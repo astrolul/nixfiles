@@ -11,6 +11,8 @@
     htop
     cmus
     nerd-fonts.terminess-ttf
+    nerd-fonts.fira-code
+    fira-code
     flameshot
     brightnessctl
     rofi-power-menu
@@ -30,6 +32,7 @@
     lxappearance
     gimp3-with-plugins
     bibletime
+    kjv
   ];  
 
   programs = {
