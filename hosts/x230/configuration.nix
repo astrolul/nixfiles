@@ -104,7 +104,7 @@
         # In postPatch, copy the fetched config into place before building
         postPatch = (oldAttrs.postPatch or "") + ''
           cp ${configFile} config.h
-          sed -i '/CPPFLAGS =/ s/$/ -DFONT_SIZE=16 -DGLYPH_SIZE=24 -DBAR_HEIGHT=32 -DGAP_SIZE=4 -DBORDER_SIZE=4/' config.mk
+          sed -i '/CPPFLAGS =/ s/$/ -DFONT_SIZE=16 -DGLYPH_SIZE=24 -DBAR_HEIGHT=32 -DGAP_SIZE=4 -DBORDER_SIZE=4 -DICONSIZE=24/' config.mk
         '';
 
         # Preserve the required build inputs for dwm

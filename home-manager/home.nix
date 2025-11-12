@@ -110,6 +110,10 @@
      name = "gruvbox-dark";
      package = pkgs.gruvbox-dark-gtk;
    };
+   font = {
+     name = "FiraCode Nerd Font Regular";
+     size = 11;
+   };
  };
 
  home.pointerCursor = {
