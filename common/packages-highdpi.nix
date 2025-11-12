@@ -14,9 +14,12 @@
     (inputs.st-secondary-src.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: rec {
       configFile = fetchurl {
         url = "https://raw.githubusercontent.com/astrolul/st/secondary/config.h";
-        sha256 = "02iwp3shrajv75b04y6p8g284y1xc8rz6zbq863f56017caqiaa6";
+        sha256 = "0jmvgfl2siazp16bg6wk42z59k4agzbk1cl9sqmimwcvjdwklq2q";
       };
-      postPatch = (oldAttrs.postPatch or "") + "\n cp ${configFile} config.h";
+      postPatch = (oldAttrs.postPatch or "") + '' 
+        cp ${configFile} config.h
+        sed -i '/CPPFLAGS =/ s/$/ -DFONT_SIZE=25/' config.mk
+      '';
     }))
 
     (inputs.slstatus-src.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: rec {

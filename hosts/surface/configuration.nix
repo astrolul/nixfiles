@@ -62,17 +62,18 @@
       enable = true;
       package = pkgs.dwm.overrideAttrs (oldAttrs: rec {
         # Use the dwm source from our flake input
-        src = inputs.dwm-secondary-src;
+        src = inputs.dwm-src;
 
         # Fetch our custom config.h from a URL (pin with a fixed sha256)
         configFile = pkgs.fetchurl {
-          url = "https://raw.githubusercontent.com/astrolul/dwm/refs/heads/secondary/config.h";
-          sha256 = "1yxy4d4jvgf5v10mxmfylh0ii92r15bbaszx5nrp0pbr2k0wpqpm";
+          url = "https://raw.githubusercontent.com/astrolul/dwm/refs/heads/main/config.h";
+          sha256 = "0v926zx4dpf069wiv2kd23n2lzhvgdq3cg0z5a6l5whxm3xzc9ks";
         };
 
         # In postPatch, copy the fetched config into place before building
         postPatch = (oldAttrs.postPatch or "") + ''
           cp ${configFile} config.h
+          sed -i '/CPPFLAGS =/ s/$/ -DFONT_SIZE=14 -DGLYPH_SIZE=22/' config.mk
         '';
 
         # Preserve the required build inputs for dwm

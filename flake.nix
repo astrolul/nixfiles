@@ -11,7 +11,6 @@
     };
 
     dwm-src = { url = "github:astrolul/dwm"; flake = false; };
-    dwm-secondary-src = { url = "github:astrolul/dwm/secondary"; flake = false; };
     st-src = { url = "github:astrolul/st"; };
     st-secondary-src = { url = "github:astrolul/st/secondary"; };
     slstatus-src = { url = "github:astrolul/slstatus"; };
