@@ -98,7 +98,7 @@
         # Fetch our custom config.h from a URL (pin with a fixed sha256)
         configFile = pkgs.fetchurl {
           url = "https://raw.githubusercontent.com/astrolul/dwm/refs/heads/main/config.h";
-          sha256 = "1j2hgrycq543cynj6hyzmcm9pj56kmi6y2nnq7nwvq5158qv97yv";
+          sha256 = "0i7gr68xprn6j9v803v8rkym3bagxda3amp475kfh3794lyq2dxb";
         };
 
         # In postPatch, copy the fetched config into place before building
