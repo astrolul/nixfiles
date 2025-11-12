@@ -60,7 +60,7 @@
       };
       postPatch = (oldAttrs.postPatch or "") + ''
         cp ${configFile} config.h
-        sed -i '/CPPFLAGS =/ s/$/ -DFONT_SIZE=25/' config.mk
+        sed -i '/CPPFLAGS =/ s/$/ -DFONT_SIZE=16/' config.mk
       '';
     }))
 
@@ -77,7 +77,10 @@
         url = "https://raw.githubusercontent.com/astrolul/dmenu/main/config.h";
         sha256 = "12nkg720fw1npg3z3nbq87znn0mf7x9rcl1r5xsj4sxczwvza70q";
       };
-      postPatch = (oldAttrs.postPatch or "") + "\n cp ${configFile} config.h";
+       postPatch = (oldAttrs.postPatch or "") + ''
+        cp ${configFile} config.h
+        sed -i '/CPPFLAGS =/ s/$/ -DFONT_SIZE=16 -DBAR_HEIGHT=7/' config.mk
+      '';
     }))
 
   ];
@@ -101,7 +104,7 @@
         # In postPatch, copy the fetched config into place before building
         postPatch = (oldAttrs.postPatch or "") + ''
           cp ${configFile} config.h
-          sed -i '/CPPFLAGS =/ s/$/ -DFONT_SIZE=14 -DGLYPH_SIZE=22/' config.mk
+          sed -i '/CPPFLAGS =/ s/$/ -DFONT_SIZE=16 -DGLYPH_SIZE=24/' config.mk
         '';
 
         # Preserve the required build inputs for dwm
