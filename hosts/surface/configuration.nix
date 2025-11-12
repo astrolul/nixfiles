@@ -12,7 +12,6 @@
       ../../common/system.nix
       ../../common/programs.nix
       ../../common/services.nix
-      ../../common/packages-highdpi.nix 
     ];
 
   # Bootloader.
@@ -53,6 +52,49 @@
     platformTheme = "gtk2";
 #    style.name = "gtk2";
   };
+
+  environment.systemPackages = with pkgs; [
+    wget
+    git
+    stow
+    nerd-fonts.terminess-ttf
+    feh
+    pavucontrol
+    flashprog
+    pciutils
+    ffmpeg
+    tree
+    (inputs.st-src.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: rec {
+      configFile = fetchurl {
+        url = "https://raw.githubusercontent.com/astrolul/st/main/config.h";
+        sha256 = "0jmvgfl2siazp16bg6wk42z59k4agzbk1cl9sqmimwcvjdwklq2q";
+      };
+      postPatch = (oldAttrs.postPatch or "") + ''
+        cp ${configFile} config.h
+        sed -i '/CPPFLAGS =/ s/$/ -DFONT_SIZE=25/' config.mk
+      '';
+    }))
+
+    (inputs.slstatus-src.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: rec {
+      configFile = fetchurl {
+        url = "https://raw.githubusercontent.com/astrolul/slstatus/main/config.h";
+        sha256 = "03r5hqfmbnw4xbwzh9mwfn5vm6dx1hqa1qk012szlxxn0gcznzm8";
+      };
+      postPatch = (oldAttrs.postPatch or "") + "\n cp ${configFile} config.h";
+    }))
+
+    (inputs.dmenu-src.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: rec {
+      configFile = fetchurl {
+        url = "https://raw.githubusercontent.com/astrolul/dmenu/main/config.h";
+        sha256 = "1j0qsz8lw4vxv57cdmygyj5bix5vn51c4sb3sfg0c72ywr0pyxmv";
+      };
+      postPatch = (oldAttrs.postPatch or "") + ''
+        cp ${configFile} config.h
+        sed -i '/CPPFLAGS =/ s/$/ -DFONT_SIZE=14 -DBAR_HEIGHT=9/' config.mk
+      '';
+    }))
+
+  ];
 
   services.xserver = {
     enable = true;
