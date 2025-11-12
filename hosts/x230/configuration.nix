@@ -75,7 +75,7 @@
     (inputs.dmenu-src.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: rec {
       configFile = fetchurl {
         url = "https://raw.githubusercontent.com/astrolul/dmenu/main/config.h";
-        sha256 = "12nkg720fw1npg3z3nbq87znn0mf7x9rcl1r5xsj4sxczwvza70q";
+        sha256 = "1j0qsz8lw4vxv57cdmygyj5bix5vn51c4sb3sfg0c72ywr0pyxmv";
       };
        postPatch = (oldAttrs.postPatch or "") + ''
         cp ${configFile} config.h
