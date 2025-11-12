@@ -5,7 +5,7 @@ pkgs.mkShell {
 
   shellHook = ''
     clear
-    echo "Welcome to your C development environment."
+    echo "🚀 Welcome to your C development environment."
     echo "GCC version: $(gcc --version | head -n1)"
   '';
 }
