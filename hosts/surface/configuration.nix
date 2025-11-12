@@ -67,7 +67,7 @@
     (inputs.st-src.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: rec {
       configFile = fetchurl {
         url = "https://raw.githubusercontent.com/astrolul/st/main/config.h";
-        sha256 = "0jmvgfl2siazp16bg6wk42z59k4agzbk1cl9sqmimwcvjdwklq2q";
+        sha256 = "0g2qrp7hvar9wi981x8pnjfgy2cjiyqc15ggmbqbr8n4m6ihkhsl";
       };
       postPatch = (oldAttrs.postPatch or "") + ''
         cp ${configFile} config.h
@@ -109,7 +109,7 @@
         # Fetch our custom config.h from a URL (pin with a fixed sha256)
         configFile = pkgs.fetchurl {
           url = "https://raw.githubusercontent.com/astrolul/dwm/refs/heads/main/config.h";
-          sha256 = "0v926zx4dpf069wiv2kd23n2lzhvgdq3cg0z5a6l5whxm3xzc9ks";
+          sha256 = "1j2hgrycq543cynj6hyzmcm9pj56kmi6y2nnq7nwvq5158qv97yv";
         };
 
         # In postPatch, copy the fetched config into place before building
