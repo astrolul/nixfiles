@@ -73,6 +73,7 @@
       enable = true;
       enableCompletion = true;
       syntaxHighlighting.enable = true;
+      autosuggestion.enable = true;
       history.size = 10000;
       initContent = ''
         PS1="%B%F{green}''${''${(%):-%n}:0:1}@''${''${(%):-%m}:0:1}%k %B%F{blue}%1~ %# %b%f%k"
