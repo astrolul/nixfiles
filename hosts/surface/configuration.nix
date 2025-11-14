@@ -54,16 +54,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    wget
-    git
-    stow
-    nerd-fonts.terminess-ttf
-    feh
-    pavucontrol
-    flashprog
-    pciutils
-    ffmpeg
-    tree
     (inputs.st-src.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: rec {
       configFile = fetchurl {
         url = "https://raw.githubusercontent.com/astrolul/st/main/config.h";

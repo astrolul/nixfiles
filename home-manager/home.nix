@@ -6,11 +6,19 @@
   home.stateVersion = "25.05";
   
   home.packages = with pkgs; [
+    wget
+    git
+    stow
+    feh
+    pavucontrol
+    flashprog
+    pciutils
+    ffmpeg
+    tree
     fastfetch
     pfetch
     htop
     cmus
-    nerd-fonts.terminess-ttf
     nerd-fonts.fira-code
     fira-code
     flameshot
