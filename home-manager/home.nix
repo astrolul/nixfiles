@@ -33,6 +33,10 @@
     gimp3-with-plugins
     bibletime
     kjv
+    tetris
+    mgba
+    gnome-mahjongg
+    stremio
   ];  
 
   programs = {
