@@ -68,7 +68,7 @@
     (inputs.slstatus-src.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: rec {
       configFile = fetchurl {
         url = "https://raw.githubusercontent.com/astrolul/slstatus/main/config.h";
-        sha256 = "03r5hqfmbnw4xbwzh9mwfn5vm6dx1hqa1qk012szlxxn0gcznzm8";
+        sha256 = "1ard769mmdf8vxj2g0zdyfv3ghfw7s540cdwqks94snlawf37fnl";
       };
       postPatch = (oldAttrs.postPatch or "") + "\n cp ${configFile} config.h";
     }))

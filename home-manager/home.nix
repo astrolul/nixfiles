@@ -45,6 +45,9 @@
     mgba
     gnome-mahjongg
     stremio
+    lmms
+    vesktop
+    jp2a
   ];  
 
   programs = {
@@ -115,7 +118,10 @@
     };
   };
 
- services.dunst.enable = true;
+ services.dunst = {
+   enable = true;
+   configFile = "/home/astrolul/nixos/misc/dunstrc";
+};
 
  gtk = {
    enable = true;
