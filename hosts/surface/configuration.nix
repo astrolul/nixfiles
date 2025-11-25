@@ -46,7 +46,9 @@
 
   hardware.enableAllFirmware = true;
   hardware.bluetooth.enable = true;
-  
+
+  services.tlp.enable = true;
+
   qt = {
     enable = true;
     platformTheme = "gtk2";

@@ -45,9 +45,12 @@
     mgba
     gnome-mahjongg
     stremio
-    lmms
-    vesktop
+    bottles
     jp2a
+    extremetuxracer
+    xorg.xwininfo
+    mangohud
+    xfce.xfburn
   ];  
 
   programs = {
