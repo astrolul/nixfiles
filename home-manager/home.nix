@@ -51,6 +51,7 @@
     xorg.xwininfo
     mangohud
     xfce.xfburn
+    libreoffice
   ];  
 
   programs = {
