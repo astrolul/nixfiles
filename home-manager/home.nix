@@ -52,6 +52,7 @@
     mangohud
     xfce.xfburn
     libreoffice
+    qbittorrent
   ];  
 
   programs = {
