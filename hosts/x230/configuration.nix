@@ -43,7 +43,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    (inputs.st-src.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: rec {
+    (inputs.st-src.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (oldAttrs: rec {
       configFile = fetchurl {
         url = "https://raw.githubusercontent.com/astrolul/st/main/config.h";
         sha256 = "0g2qrp7hvar9wi981x8pnjfgy2cjiyqc15ggmbqbr8n4m6ihkhsl";
@@ -54,7 +54,7 @@
       '';
     }))
 
-    (inputs.slstatus-src.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: rec {
+    (inputs.slstatus-src.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (oldAttrs: rec {
       configFile = fetchurl {
         url = "https://raw.githubusercontent.com/astrolul/slstatus/main/config.h";
         sha256 = "1ard769mmdf8vxj2g0zdyfv3ghfw7s540cdwqks94snlawf37fnl";
@@ -62,7 +62,7 @@
       postPatch = (oldAttrs.postPatch or "") + "\n cp ${configFile} config.h";
     }))
 
-    (inputs.dmenu-src.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: rec {
+    (inputs.dmenu-src.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (oldAttrs: rec {
       configFile = fetchurl {
         url = "https://raw.githubusercontent.com/astrolul/dmenu/main/config.h";
         sha256 = "1j0qsz8lw4vxv57cdmygyj5bix5vn51c4sb3sfg0c72ywr0pyxmv";

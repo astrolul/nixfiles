@@ -52,6 +52,7 @@
     xfce.xfburn
     libreoffice
     qbittorrent
+    kodi
   ];  
 
   programs = {
