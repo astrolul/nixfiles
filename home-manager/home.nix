@@ -3,7 +3,7 @@
 {
   home.username = "astrolul";
   home.homeDirectory = "/home/astrolul";
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
   
   home.packages = with pkgs; [
     wget
@@ -44,7 +44,6 @@
     tetris
     mgba
     gnome-mahjongg
-    stremio
     bottles
     jp2a
     extremetuxracer
@@ -61,8 +60,10 @@
     };
     git = {
       enable = true;
-      userName = "astrolul";
-      userEmail = "85197489+astrolul@users.noreply.github.com";
+      settings = {
+        user.name = "astrolul";
+        user.email = "85197489+astrolul@users.noreply.github.com";
+     };
     };
     cmus = {
       enable = true;
