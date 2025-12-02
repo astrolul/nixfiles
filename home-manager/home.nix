@@ -53,6 +53,8 @@
     libreoffice
     qbittorrent
     kodi
+    krita
+    corefonts
   ];  
 
   programs = {
