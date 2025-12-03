@@ -4,7 +4,9 @@
   home.username = "astrolul";
   home.homeDirectory = "/home/astrolul";
   home.stateVersion = "25.11";
-  
+
+  imports = [ ../common/hyprland.nix ];
+
   home.packages = with pkgs; [
     wget
     git
@@ -21,9 +23,7 @@
     cmus
     nerd-fonts.fira-code
     fira-code
-    flameshot
     brightnessctl
-    rofi-power-menu
     weechat
     streamrip
     hugo
@@ -47,14 +47,23 @@
     bottles
     jp2a
     extremetuxracer
-    xorg.xwininfo
     mangohud
-    xfce.xfburn
     libreoffice
     qbittorrent
-    kodi
     krita
     corefonts
+    foot
+    waybar
+    wofi
+    hyprpaper
+    hypridle
+    slurp
+    grim
+    vesktop
+    wl-clipboard
+    cmatrix
+    wofi-power-menu
+    wofi-emoji
   ];  
 
   programs = {
@@ -79,11 +88,6 @@
     };
     fastfetch = {
       enable = true;
-    };
-    rofi = {
-      enable = true;
-      plugins = [pkgs.rofi-emoji];
-      theme = "/home/astrolul/nixos/misc/merah.rasi";
     };
     btop = {
       enable = true;
@@ -146,9 +150,8 @@
 
  home.pointerCursor = {
    gtk.enable = true;   # Ensures GTK apps (including those on Wayland) use this cursor
-   x11.enable = true;   # Registers the cursor for X11 sessions (e.g., root window, WM)
-   x11.defaultCursor = "left_ptr";
-   name = "Bibata-Modern-Ice";
+   hyprcursor.enable = true;   # Registers the cursor for X11 sessions (e.g., root window, WM)
+   name = "Bibata-Original-Ice";
    package = pkgs.bibata-cursors;
    size = 24;
  };

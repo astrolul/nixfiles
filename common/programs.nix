@@ -29,15 +29,25 @@
     };
   };
 
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  programs.foot = {
+    enable = true;
+    theme = "gruvbox";
+    settings = {
+      main = {
+        font = "FiraCode Nerd Font:size=12";
+        pad = "15x15";
+      };
+      colors = {
+        alpha = 0.8;
+      };
+    };
+  };
+
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    xorg.libX11
-    xorg.libXft
-    xorg.libXinerama
-    imlib2
-    freetype
-    harfbuzz
-    fontconfig
-  ];
 
 }
