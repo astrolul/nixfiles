@@ -10,6 +10,8 @@
       "$menu" = "wofi --show drun";
       "$powermenu" = "wofi-power-menu";
       "$emojimenu" = "wofi-emoji";
+      "$printscreen" = "grim - | wl-copy";
+      "$printscreensel" = "grim -g \"$(slurp)\" - | wl-copy";
       "$mainMod" = "SUPER";
 
       monitor = ",preferred,auto,auto";
@@ -166,8 +168,10 @@
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
-        "$mainMod, S, togglespecialworkspace, magic"
-        "$mainMod SHIFT, S, movetoworkspace, special:magic"
+#        "$mainMod, S, togglespecialworkspace, magic"
+        "$mainMod, S, exec, $printscreen"
+#        "$mainMod SHIFT, S, movetoworkspace, special:magic"
+        "$mainMod SHIFT, S, exec, $printscreensel"
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
       ];
