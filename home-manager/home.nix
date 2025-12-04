@@ -37,14 +37,11 @@
     xarchiver
     unrar
     nicotine-plus
-    lxappearance
     gimp3-with-plugins
     bibletime
     kjv
     tetris
-    mgba
     gnome-mahjongg
-    bottles
     jp2a
     extremetuxracer
     mangohud
