@@ -134,6 +134,10 @@
         }
       ];
 
+      xwayland = {
+        force_zero_scaling = true;
+      };
+
       bind = [
         "$mainMod, Return, exec, $terminal"
         "$mainMod SHIFT, C, killactive,"
