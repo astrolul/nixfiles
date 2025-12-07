@@ -53,6 +53,24 @@
           }
         ];
       };
+
+      # New entry for another machine (e.g., "laptop")
+      desktop = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/desktop/configuration.nix  # Point to the new machine's config
+          home-manager.nixosModules.default
+          nvf.nixosModules.default
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = { inherit inputs; };
+              users.astrolul.imports = [ ./home-manager/home.nix ];  # Reuse shared Home Manager, or customize if needed
+            };
+          }
+        ];
+      };
     };
 
       # Add as many as needed, e.g.:

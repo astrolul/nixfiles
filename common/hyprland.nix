@@ -88,9 +88,9 @@
           "layersOut, 1, 1.5, linear, fade"
           "fadeLayersIn, 1, 1.79, almostLinear"
           "fadeLayersOut, 1, 1.39, almostLinear"
-          "workspaces, 1, 1.94, almostLinear, fade"
-          "workspacesIn, 1, 1.21, almostLinear, fade"
-          "workspacesOut, 1, 1.94, almostLinear, fade"
+          "workspaces, 1, 1.94, almostLinear, slide"
+          "workspacesIn, 1, 1.21, almostLinear, slide"
+          "workspacesOut, 1, 1.94, almostLinear, slide"
           "zoomFactor, 1, 7, quick"
         ];
       };
@@ -228,8 +228,11 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [ "/home/astrolul/nixos/misc/wallpaper.png" ];
-      wallpaper = [ "eDP-1,/home/astrolul/nixos/misc/wallpaper.png" ];
+      preload = [ 
+        "/home/astrolul/nixos/misc/wallpaper.png"
+        "/home/astrolul/nixos/misc/wallpaper-2.png"
+      ];
+      wallpaper = [ "eDP-1,/home/astrolul/nixos/misc/wallpaper-2.png" ];
     };
   };
 
