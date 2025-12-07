@@ -232,7 +232,7 @@
         "/home/astrolul/nixos/misc/wallpaper.png"
         "/home/astrolul/nixos/misc/wallpaper-2.png"
       ];
-      wallpaper = [ "eDP-1,/home/astrolul/nixos/misc/wallpaper-2.png" ];
+      wallpaper = [ ",/home/astrolul/nixos/misc/wallpaper-2.png" ];
     };
   };
 
