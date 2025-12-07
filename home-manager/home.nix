@@ -61,9 +61,19 @@
     cmatrix
     wofi-power-menu
     wofi-emoji
+    parsec-bin
   ];  
 
   programs = {
+    chawan = {
+      enable = true;
+      settings = {
+        buffer = {
+          images = true;
+          autofocus = true;
+        };
+      };
+    };
     obs-studio = {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [
