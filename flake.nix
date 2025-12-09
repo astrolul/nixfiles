@@ -16,7 +16,7 @@
     dmenu-src = { url = "github:astrolul/dmenu"; };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, nvf, home-manager, ... }@inputs: {
     nixosConfigurations = {
       x230server = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
