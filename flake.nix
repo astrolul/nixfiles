@@ -16,20 +16,19 @@
     dmenu-src = { url = "github:astrolul/dmenu"; };
   };
 
-  outputs = { self, nixpkgs, nvf, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations = {
-      x230 = nixpkgs.lib.nixosSystem {
+      x230server = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
-          ./hosts/x230/configuration.nix
+          ./hosts/x230server/configuration.nix
           home-manager.nixosModules.default
-          nvf.nixosModules.default
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
               extraSpecialArgs = { inherit inputs; };
-              users.astrolul.imports = [ ./home-manager/home.nix ];
+              users.astrolul.imports = [ ./home-manager/home-server.nix ];
             };
           }
         ];

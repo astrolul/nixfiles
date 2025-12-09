@@ -8,10 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../common/users.nix 
-      ../../common/system.nix
-      ../../common/services.nix
-      ../../common/programs.nix
     ];
 
   # Bootloader.
@@ -23,7 +19,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "x230server"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -38,13 +34,67 @@
 
   services.tlp.enable = true;
 
-  qt = {
-    enable = true;
-    platformTheme = "gtk2";
-    style = "gtk2";
+  environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
+ 
+  programs.dconf.enable = true;
+  
+  programs.nix-ld.enable = true;
+
+  services.openssh.enable = true;
+
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.dates = "weekly";
+
+  nix.gc.automatic = true;
+  nix.gc.dates = "daily";
+  nix.gc.options = "--delete-older-than 14d";
+  nix.settings.auto-optimise-store = true;
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Set your time zone.
+  time.timeZone = "Europe/London";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_GB.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_GB.UTF-8";
+    LC_IDENTIFICATION = "en_GB.UTF-8";
+    LC_MEASUREMENT = "en_GB.UTF-8";
+    LC_MONETARY = "en_GB.UTF-8";
+    LC_NAME = "en_GB.UTF-8";
+    LC_NUMERIC = "en_GB.UTF-8";
+    LC_PAPER = "en_GB.UTF-8";
+    LC_TELEPHONE = "en_GB.UTF-8";
+    LC_TIME = "en_GB.UTF-8";
   };
 
-  environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
+  console.keyMap = "uk";
+
+  nixpkgs.config.allowUnfree = true;
+
+  users.users.astrolul = {
+    isNormalUser = true;
+    description = "astrolul";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [];
+  };
+
+  users.users.astrolul.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILJqpwrawF97qG9k5Ss28crZEqUcOGz1mrsncycByksb astrolul" # content of authorized_keys file
+    # note: ssh-copy-id will add user@your-machine after the public key
+    # but we can remove the "@your-machine" part
+  ];
+
+  users.defaultUserShell = pkgs.zsh;
+  environment.shells = with pkgs; [ zsh ];
+  environment.variables = {
+    EDITOR = "nvim";
+    SUDO_EDITOR = "nvim";
+  };
+
+  programs.zsh.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

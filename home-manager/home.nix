@@ -62,6 +62,9 @@
     wofi-power-menu
     wofi-emoji
     parsec-bin
+    inetutils
+    nmap
+    python313Packages.python-kasa
   ];  
 
   programs = {
