@@ -16,7 +16,6 @@
     ffmpeg
     tree
     fastfetch
-    pfetch
     htop
     streamrip
     statix
@@ -24,6 +23,7 @@
     unrar
     inetutils
     nmap
+    neovim
   ];  
 
   programs = {
