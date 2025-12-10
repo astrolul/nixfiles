@@ -32,7 +32,7 @@
     statix
     thonny
     gemini-cli
-    ungoogled-chromium
+    (ungoogled-chromium.override { enableWideVine = true; })
     pcmanfm
     xarchiver
     unrar
@@ -65,6 +65,7 @@
     inetutils
     nmap
     python313Packages.python-kasa
+    vscode-fhs
   ];  
 
   programs = {
