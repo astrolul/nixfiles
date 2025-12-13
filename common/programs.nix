@@ -9,6 +9,8 @@
     enable = true;
     enableManpages = true;
     settings = {
+      vim.vimAlias = true;
+      vim.viAlias = true;
       vim.theme.enable = true;
       vim.theme.name = "gruvbox";
       vim.theme.style = "dark";
@@ -19,6 +21,7 @@
       vim.languages.nix.enable = true;
       vim.languages.clang.enable = true;
       vim.languages.markdown.enable = true;
+      vim.languages.python.enable = true;
       vim.lsp.enable = true;
       vim.languages.enableTreesitter = true;
       vim.extraPlugins = {

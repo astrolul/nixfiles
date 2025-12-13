@@ -65,7 +65,9 @@
     inetutils
     nmap
     python313Packages.python-kasa
-    vscode-fhs
+    opencode
+    audacity
+    emacs
   ];  
 
   programs = {
