@@ -67,7 +67,7 @@
     python313Packages.python-kasa
     opencode
     audacity
-    emacs
+    superTuxKart
   ];  
 
   programs = {
