@@ -3,6 +3,8 @@
 
 services.blueman.enable = true;
 
+services.flatpak.enable = true;
+
   services.pipewire.wireplumber.extraConfig.bluetoothEnhancements = {
     "monitor.bluez.properties" = {
       "bluez5.enable-sbc-xq" = true;

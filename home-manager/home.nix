@@ -5,7 +5,10 @@
   home.homeDirectory = "/home/astrolul";
   home.stateVersion = "25.11";
 
-  imports = [ ../common/hyprland.nix ];
+  imports = 
+    [
+      ../common/hyprland.nix
+    ];
 
   home.packages = with pkgs; [
     wget
@@ -68,6 +71,8 @@
     opencode
     audacity
     superTuxKart
+    godot
+    bottles
   ];  
 
   programs = {
