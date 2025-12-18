@@ -73,6 +73,7 @@
     superTuxKart
     godot
     bottles
+    osu-lazer
   ];  
 
   programs = {

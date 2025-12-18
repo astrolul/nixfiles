@@ -17,6 +17,7 @@
       vim.highlight.Normal.bg = null;
       vim.highlight.Normal.ctermbg = null;
       vim.statusline.lualine.enable = true;
+      vim.visuals.nvim-scrollbar.enable = true;
       vim.autocomplete.nvim-cmp.enable = true;
       vim.languages.nix.enable = true;
       vim.languages.clang.enable = true;
@@ -24,11 +25,7 @@
       vim.languages.python.enable = true;
       vim.lsp.enable = true;
       vim.languages.enableTreesitter = true;
-      vim.extraPlugins = {
-        vim-css-color = {
-          package = pkgs.vimPlugins.vim-css-color;
-        };
-      };
+      vim.ui.nvim-highlight-colors.enable = true;
     };
   };
 
