@@ -17,7 +17,7 @@
       monitor = ",preferred,auto,auto";
 
       exec-once = [
-        "waybar"
+        "waybar -c /home/astrolul/nixos/misc/waybar/config -s /home/astrolul/nixos/misc/waybar/style.css"
         "hyprpaper"
         "hypridle"
       ];
