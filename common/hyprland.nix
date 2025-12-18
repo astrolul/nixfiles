@@ -204,6 +204,10 @@
       windowrule = [
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+        "bordersize 0, class:^(waybar)$"
+        "nodim, class:^(waybar)$"
+        "nofocus, class:^(waybar)$"
+        "opacity 1.0, class:^(waybar)$"
       ];
     };
   };
