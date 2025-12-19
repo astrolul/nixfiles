@@ -18,11 +18,9 @@
 
   boot.loader = {
     efi.canTouchEfiVariables = true;  # Required for UEFI
-    grub = {
+    systemd-boot = {
       enable = true;
-      efiSupport = true;  # Enable EFI mode
-      device = "nodev";  # No device for UEFI (uses EFI partition instead)
-      useOSProber = true;  # If dual-booting
+      editor = true;
       memtest86.enable = true;
       # Optional: Extra GRUB config
       # extraEntries = '' ... '';  # For custom boot entries

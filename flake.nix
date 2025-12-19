@@ -18,22 +18,6 @@
 
   outputs = { self, nixpkgs, nvf, home-manager, ... }@inputs: {
     nixosConfigurations = {
-      x230server = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/x230server/configuration.nix
-          home-manager.nixosModules.default
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = { inherit inputs; };
-              users.astrolul.imports = [ ./home-manager/home-server.nix ];
-            };
-          }
-        ];
-      };
-
 
       # New entry for another machine (e.g., "laptop")
       surface = nixpkgs.lib.nixosSystem {

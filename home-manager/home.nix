@@ -74,6 +74,8 @@
     godot
     bottles
     osu-lazer
+    prismlauncher
+    efibootmgr
   ];  
 
   programs = {
