@@ -99,10 +99,17 @@
 
     "network": {
         "interval": 5,
-        "format-wifi": "  {essid}", // Icon: wifi
-        "format-ethernet": "  {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
+        "format-wifi": "{icon}  {essid}",
+        "format-ethernet": "  {ifname}: {ipaddr}/{cidr}",
         "format-disconnected": "⚠  Disconnected",
-        "tooltip-format": "{ifname}: {ipaddr}"
+        "tooltip-format": "{ifname}: {ipaddr}",
+        "format-icons": [
+            "󰤯",  // Very low signal
+            "󰤟",  // Low
+            "󰤢",  // Medium
+            "󰤥",  // Good
+            "󰤨"   // Excellent
+        ]
     },
 
     "hyprland/mode": {
