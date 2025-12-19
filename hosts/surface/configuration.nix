@@ -22,6 +22,7 @@
       enable = true;
       editor = true;
       memtest86.enable = true;
+      edk2-uefi-shell.enable = true;
       # Optional: Extra GRUB config
       # extraEntries = '' ... '';  # For custom boot entries
     };

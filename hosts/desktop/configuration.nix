@@ -22,6 +22,13 @@
       enable = true;
       editor = true;
       memtest86.enable = true;
+      edk2-uefi-shell.enable = true;
+      windows = {
+        "windows" = {
+          title = "Microsoft Windows 11 IoT LTSC";
+          efiDeviceHandle = "HD0b";
+        };
+      };
       # Optional: Extra GRUB config
       # extraEntries = '' ... '';  # For custom boot entries
     };
