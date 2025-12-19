@@ -76,6 +76,8 @@
     osu-lazer
     prismlauncher
     efibootmgr
+    cmusfm
+    element-desktop
   ];  
 
   programs = {
@@ -112,6 +114,7 @@
       extraConfig = ''
         set output_plugin=pulse
         set show_current_bitrate=true
+        set status_display_program=cmusfm
         add ~/music
       '';
     };
