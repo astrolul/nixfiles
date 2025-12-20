@@ -78,6 +78,7 @@
     efibootmgr
     cmusfm
     element-desktop
+    protonplus
   ];  
 
   programs = {
