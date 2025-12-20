@@ -78,7 +78,7 @@
     efibootmgr
     cmusfm
     element-desktop
-    protonplus
+    protonup-rs
   ];  
 
   programs = {

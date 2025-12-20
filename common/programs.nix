@@ -42,6 +42,8 @@
     gamescopeSession.enable = true;
   };
 
+  programs.gamemode.enable = true;
+
   programs.foot = {
     enable = true;
     theme = "gruvbox";
