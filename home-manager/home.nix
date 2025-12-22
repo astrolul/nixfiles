@@ -79,6 +79,8 @@
     cmusfm
     element-desktop
     protonup-rs
+    protonvpn-gui
+    lmms
   ];  
 
   programs = {
