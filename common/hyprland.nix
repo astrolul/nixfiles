@@ -14,7 +14,7 @@
       "$printscreensel" = "grim -g \"$(slurp)\" - | wl-copy";
       "$mainMod" = "SUPER";
 
-      monitor = ",preferred,auto,auto";
+      monitor = ",highrr,auto,auto";
 
       exec-once = [
         "waybar -c /home/astrolul/nixos/misc/waybar/config -s /home/astrolul/nixos/misc/waybar/style.css"
