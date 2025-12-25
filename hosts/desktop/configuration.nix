@@ -23,6 +23,7 @@
       editor = true;
       memtest86.enable = true;
       edk2-uefi-shell.enable = true;
+      consoleMode = "max";
       windows = {
         "windows" = {
           title = "Microsoft Windows 11 IoT LTSC";

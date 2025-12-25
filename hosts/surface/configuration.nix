@@ -23,6 +23,7 @@
       editor = true;
       memtest86.enable = true;
       edk2-uefi-shell.enable = true;
+      consoleMode = "max";
       # Optional: Extra GRUB config
       # extraEntries = '' ... '';  # For custom boot entries
     };
