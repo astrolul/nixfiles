@@ -85,7 +85,6 @@
     protonup-rs
     protonvpn-gui
     lmms
-    openrgb-with-all-plugins
   ];  
 
   programs = {

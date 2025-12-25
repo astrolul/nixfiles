@@ -4,6 +4,9 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
+
+    plugins = [ pkgs.hyprlandPlugins.csgo-vulkan-fix ];
+
     settings = {
       "$terminal" = "foot";
       "$fileManager" = "pcmanfm";
@@ -15,6 +18,15 @@
       "$mainMod" = "SUPER";
 
       monitor = ",highrr,auto,auto";
+
+      plugins = {
+        "csgo-vulkan-fix" = {
+          res_w = 1920;  # Desired width (e.g., for stretched res)
+          res_h = 1080;  # Desired height
+          class = "csgo_linux64";  # Window class of the app (check with `hyprctl clients`)
+          fix_mouse = true;  # Fixes mouse position; disable if it causes issues
+        };
+      };
 
       exec-once = [
         "waybar -c /home/astrolul/nixos/misc/waybar/config -s /home/astrolul/nixos/misc/waybar/style.css"

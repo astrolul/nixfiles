@@ -123,4 +123,10 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
 
+  fileSystems."/home/astrolul/drive1" = {
+    device = "/dev/disk/by-uuid/2000DCF900DCD73E";  # Replace with the UUID from Step 1
+    fsType = "ntfs3";
+    options = [ "rw" "uid=1000" "gid=100" "dmask=0022" "fmask=0022" "nofail" ];  # Replace YOUR_UID and YOUR_GID from Step 3
+  };
+
 }
