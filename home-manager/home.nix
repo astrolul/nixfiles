@@ -27,7 +27,11 @@
     nerd-fonts.fira-code
     fira-code
     brightnessctl
-    weechat
+    (weechat.override {
+      configure = { availablePlugins, ... }: {
+        plugins = with availablePlugins; [ python ];
+      };
+    })
     streamrip
     hugo
     mpv
