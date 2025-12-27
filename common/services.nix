@@ -37,7 +37,7 @@ services.hardware.openrgb = {
   motherboard = "amd"; 
   server = { 
     port = 6742; 
-  }; 
+  };
 };
 
   services.openssh.enable = true;
