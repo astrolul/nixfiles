@@ -85,6 +85,11 @@
     protonup-rs
     protonvpn-gui
     lmms
+    cider-2
+    (retroarch.withCores (cores: with cores; [
+      mgba
+      snes9x
+    ]))
   ];  
 
   programs = {
