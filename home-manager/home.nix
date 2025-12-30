@@ -152,6 +152,8 @@
 
         EDITOR="nvim"
         SUDO_EDITOR="nvim"      
+        
+        export PATH="$HOME/.cargo/bin:$PATH"
 
         if [[ $DISPLAY =~ ^:[0-9]+$ ]] && command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
           tmux attach-session -t default || tmux new-session -s default
