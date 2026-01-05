@@ -86,6 +86,7 @@
     protonvpn-gui
     lmms
     cider-2
+    luanti
     (retroarch.withCores (cores: with cores; [
       mgba
       snes9x
