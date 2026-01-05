@@ -248,8 +248,9 @@
         "/home/astrolul/nixos/misc/wallpaper-5.png"
         "/home/astrolul/nixos/misc/wallpaper-6.png"
         "/home/astrolul/nixos/misc/wallpaper-6-upscaled.png"
+        "/home/astrolul/nixos/misc/wallpaper-7.png"
       ];
-      wallpaper = [ ",/home/astrolul/nixos/misc/wallpaper-6-upscaled.png" ];
+      wallpaper = [ ",/home/astrolul/nixos/misc/wallpaper-7.png" ];
     };
   };
 
