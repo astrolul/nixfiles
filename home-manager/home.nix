@@ -87,6 +87,7 @@
     lmms
     cider-2
     luanti
+    gajim
     (retroarch.withCores (cores: with cores; [
       mgba
       snes9x
