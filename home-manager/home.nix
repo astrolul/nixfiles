@@ -37,7 +37,6 @@
     mpv
     yt-dlp
     statix
-    thonny
     gemini-cli
     (ungoogled-chromium.override { enableWideVine = true; })
     pcmanfm
@@ -72,7 +71,6 @@
     inetutils
     nmap
     python313Packages.python-kasa
-    opencode
     audacity
     superTuxKart
     godot
@@ -84,10 +82,10 @@
     element-desktop
     protonup-rs
     protonvpn-gui
-    lmms
     cider-2
     luanti
     gajim
+    kaidan
     (retroarch.withCores (cores: with cores; [
       mgba
       snes9x
@@ -138,7 +136,7 @@
     btop = {
       enable = true;
       settings = {
-        color_theme = "gruvbox_dark_v2";
+        color_theme = "onedark";
         theme_background = false;
         truecolor = true;
       };
@@ -174,7 +172,7 @@
       extraConfig = ''
         set-option -sa terminal-overrides ",tmux-256color*:Tc"
         set -g status-style bg=default
-        set -g status-fg "#fabd2f"
+        set -g status-fg "#98c379"
       '';
     };
   };
@@ -187,8 +185,8 @@
  gtk = {
    enable = true;
    theme = {
-     name = "gruvbox-dark";
-     package = pkgs.gruvbox-dark-gtk;
+     name = "Arc-Dark";
+     package = pkgs.arc-theme;
    };
    font = {
      name = "FiraCode Nerd Font Regular";

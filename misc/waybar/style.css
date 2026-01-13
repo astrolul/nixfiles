@@ -1,194 +1,262 @@
-/* =============================================================================
- *
- * Waybar configuration
- *
- * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
- *
- * =========================================================================== */
-
-/* -----------------------------------------------------------------------------
- * Keyframes
- * -------------------------------------------------------------------------- */
-
-@keyframes blink-warning {
-    70% {
-        color: #fbf1c7;
-    }
-
-    to {
-        color: #fbf1c7;
-        background-color: #fe8019;
-    }
-}
+/* Keyframes */
 
 @keyframes blink-critical {
-    70% {
-      color: #fbf1c7;
-    }
-
-    to {
-        color: #fbf1c7;
-        background-color: #cc241d;
-    }
+	to {
+		/*color: @white;*/
+		background-color: @critical;
+	}
 }
 
 
-/* -----------------------------------------------------------------------------
- * Base styles
- * -------------------------------------------------------------------------- */
+/* Styles */
+
+/* Colors (OneDark) */
+@define-color bg2	#282c34;
+@define-color red	#e06c75;
+@define-color green	#98c379;
+@define-color yellow	#e5c07b;
+@define-color blue	#61afef;
+@define-color purple	#c678dd;
+@define-color aqua	#56b6c2;
+@define-color gray	#abb2bf;
+@define-color brgray	#3f4451;
+@define-color brred	#e06c75;
+@define-color brgreen	#98c379;
+@define-color bryellow	#e5c07b;
+@define-color brblue	#61afef;
+@define-color brpurple	#c678dd;
+@define-color braqua	#56b6c2;
+@define-color white	#abb2bf;
+@define-color black	#21252b;
+
+@define-color warning 	@bryellow;
+@define-color critical	@red;
+@define-color mode	@red;
+@define-color unfocused	@black;
+@define-color focused	@braqua;
+@define-color inactive	@bg2;
+@define-color sound	@bg2;
+@define-color network	@black;
+@define-color memory	@bg2;
+@define-color cpu	@black;
+@define-color temp	@bg2;
+@define-color layout	@black;
+@define-color battery	@black;
+@define-color date	@bg2;
+@define-color time	@black;
 
 /* Reset all styles */
 * {
-    border: none;
-    border-radius: 0;
-    min-height: 0;
-    margin: 0;
-    padding: 0;
+	border: none;
+	border-radius: 0;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+	box-shadow: none;
+	text-shadow: none;
+	icon-shadow: none;
 }
 
 /* The whole bar */
 #waybar {
-    background: #1d2021;
-    color: #a89984;
-    font-family: FiraCode Nerd Font;
-    font-size: 14px;
+	background: rgba(33, 37, 43, 0.8784313725); /* #21252be0 */
+	color: @white;
+	font-family: FiraCode Nerd Font;
+	font-size: 10pt;
+	/*font-weight: bold;*/
 }
 
 /* Each module */
 #battery,
 #clock,
 #cpu,
-#custom-keyboard-layout,
+#language,
 #memory,
 #mode,
 #network,
 #pulseaudio,
-#temperature,
-#tray {
-    padding-left: 10px;
-    padding-right: 10px;
+#custom-temperature,
+#tray,
+#backlight,
+#idle_inhibitor,
+#disk,
+#user,
+#mpris {
+	padding-left: 8pt;
+	padding-right: 8pt;
 }
 
-
-/* -----------------------------------------------------------------------------
- * Module styles
- * -------------------------------------------------------------------------- */
-
-#battery {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#battery.warning {
-    color: #fe8019;
-}
-
-#battery.critical {
-    color: #cc241d;
-}
-
-#battery.warning.discharging {
-    animation-name: blink-warning;
-    animation-duration: 3s;
-}
-
+/* Each critical module */
+#mode,
+#memory.critical,
+#cpu.critical,
 #battery.critical.discharging {
-    animation-name: blink-critical;
-    animation-duration: 2s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-name: blink-critical;
+	animation-duration: 1s;
 }
 
-#clock {
-    font-weight: normal;
+/* Each warning */
+#network.disconnected,
+#memory.warning,
+#cpu.warning,
+#battery.warning.discharging {
+	color: @warning;
 }
 
-#cpu {
-  /* No styles */
-}
+/* And now modules themselves in their respective order */
 
-#cpu.warning {
-    color: #fe8019;
-}
-
-#cpu.critical {
-    color: #cc241d;
-}
-
-#memory {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#memory.warning {
-    color: #fe8019;
-}
-
-#memory.critical {
-    color: #cc241d;
-    animation-name: blink-critical;
-    animation-duration: 2s;
-}
-
+/* Current sway mode (resize etc) */
 #mode {
-    background: #a89984;
-    border-top: 2px solid #fbf1c7;
-    /* To compensate for the top border and still have vertical centering */
-    padding-bottom: 2px;
+	color: @white;
+	background: @mode;
 }
 
-#network {
-    /* No styles */
+/* Workspaces stuff */
+#workspaces button {
+	/*font-weight: bold;*/
+	padding-left: 2pt;
+	padding-right: 2pt;
+	color: @white;
+	background: @unfocused;
 }
 
-#network.disconnected {
-    color: #fe8019;
+/* Inactive (on unfocused output) */
+#workspaces button.visible {
+	color: @white;
+	background: @inactive;
 }
 
-#pulseaudio {
-    /* No styles */
+/* Active (on focused output) */
+#workspaces button.focused {
+	color: @black;
+	background: @focused;
 }
 
-#pulseaudio.muted {
-    /* No styles */
+/* Contains an urgent window */
+#workspaces button.urgent {
+	color: @black;
+	background: @warning;
 }
 
-#custom-spotify {
-    color: rgb(102, 220, 105);
-}
-
-#temperature {
-    /* No styles */
-}
-
-#temperature.critical {
-    color: #cc241d;
-}
-
-#tray {
-    /* No styles */
+/* Style when cursor is on the button */
+#workspaces button:hover {
+	background: @black;
+	color: @white;
 }
 
 #window {
-    font-weight: bold;
+	margin-right: 35pt;
+	margin-left: 35pt;
 }
 
-#workspaces button {
-    border-top: 2px solid transparent;
-    /* To compensate for the top border and still have vertical centering */
-    padding-bottom: 2px;
-    padding-left: 10px;
-    padding-right: 10px;
-    color: #a89984;
+#pulseaudio {
+	background: @sound;
+	color: @white;
 }
 
-#workspaces button.focused {
-    border-color: #4c7899;
-    color: #fbf1c7;
-    background-color: #285577;
+#network {
+	background: @network;
+	color: @white;
 }
 
-#workspaces button.urgent {
-    border-color: #cc241d;
-    color: #cc241d;
+#memory {
+	background: @memory;
+	color: @white;
+}
+
+#cpu {
+	background: @cpu;
+	color: @white;
+}
+
+#custom-temperature {
+	background: @temp;
+	color: @white;
+}
+
+#language {
+	background: @layout;
+	color: @white;
+}
+
+#battery {
+	background: @battery;
+	color: @white;
+}
+
+#tray {
+	background: @date;
+}
+
+#clock.date {
+	background: @date;
+	color: @white;
+}
+
+#clock.time {
+	background: @time;
+	color: @white;
+}
+
+#custom-arrow1 {
+	font-size: 11pt;
+	color: @time;
+	background: @date;
+}
+
+#custom-arrow2 {
+	font-size: 11pt;
+	color: @date;
+	background: @layout;
+}
+
+#custom-arrow3 {
+	font-size: 11pt;
+	color: @layout;
+	background: @battery;
+}
+
+#custom-arrow4 {
+	font-size: 11pt;
+	color: @battery;
+	background: @temp;
+}
+
+#custom-arrow5 {
+	font-size: 11pt;
+	color: @temp;
+	background: @cpu;
+}
+
+#custom-arrow6 {
+	font-size: 11pt;
+	color: @cpu;
+	background: @memory;
+}
+
+#custom-arrow7 {
+	font-size: 11pt;
+	color: @memory;
+	background: @network;
+}
+
+#custom-arrow8 {
+	font-size: 11pt;
+	color: @network;
+	background: @sound;
+}
+
+#custom-arrow9 {
+	font-size: 11pt;
+	color: @sound;
+	background: transparent;
+}
+
+#custom-arrow10 {
+	font-size: 11pt;
+	color: @unfocused;
+	background: transparent;
 }
