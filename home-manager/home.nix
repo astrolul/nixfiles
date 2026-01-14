@@ -53,7 +53,6 @@
     mangohud
     libreoffice
     qbittorrent
-    krita
     corefonts
     foot
     waybar
@@ -73,19 +72,15 @@
     python313Packages.python-kasa
     audacity
     superTuxKart
-    godot
     bottles
-    osu-lazer
     prismlauncher
     efibootmgr
     cmusfm
-    element-desktop
     protonup-rs
     protonvpn-gui
     cider-2
     luanti
     gajim
-    kaidan
     dipc
     figlet
     (retroarch.withCores (cores: with cores; [
