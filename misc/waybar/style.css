@@ -59,7 +59,7 @@
 
 /* The whole bar */
 #waybar {
-	background: rgba(33, 37, 43, 0.8784313725); /* #21252be0 */
+	background: #21252b;
 	color: @white;
 	font-family: FiraCode Nerd Font;
 	font-size: 10pt;
