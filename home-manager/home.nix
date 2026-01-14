@@ -86,6 +86,8 @@
     luanti
     gajim
     kaidan
+    dipc
+    figlet
     (retroarch.withCores (cores: with cores; [
       mgba
       snes9x

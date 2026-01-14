@@ -25,7 +25,9 @@
 		"custom/arrow2",
 		"clock#date",
 		"custom/arrow1",
-		"clock#time"
+		"clock#time",
+                "custom/arrow5",
+                "tray"
 	],
 
 	// Modules
@@ -139,15 +141,15 @@
 	},
 
         "custom/temperature": {
-        "exec": "~/nixos/misc/waybar/temperature.sh",
-        "interval": 300,  // Update every 5 minutes
-        "format": "{}",
-        "tooltip": false
+          "exec": "~/nixos/misc/waybar/temperature.sh",
+          "interval": 1800,  // Update every 30 minutes
+          "format": "{}",
+          "tooltip": false
         },
 
 	"tray": {
-		"icon-size": 18
-		//"spacing": 10
+		"icon-size": 18,
+		"spacing": 10
 	},
 
 	"custom/arrow1": {

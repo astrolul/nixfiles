@@ -13,7 +13,7 @@
       vim.viAlias = true;
       vim.theme.enable = true;
       vim.theme.name = "onedark";
-      vim.theme.style = "darker";
+      vim.theme.style = "dark";
       vim.highlight.Normal.bg = null;
       vim.highlight.Normal.ctermbg = null;
       vim.statusline.lualine.enable = true;
@@ -53,7 +53,7 @@
         pad = "15x15";
       };
       colors = {
-        alpha = 0.8;
+        alpha = 1.0;
       };
     };
   };
