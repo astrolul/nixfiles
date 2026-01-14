@@ -9,11 +9,6 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    dwm-src = { url = "github:astrolul/dwm"; flake = false; };
-    st-src = { url = "github:astrolul/st"; };
-    slstatus-src = { url = "github:astrolul/slstatus"; };
-    dmenu-src = { url = "github:astrolul/dmenu"; };
   };
 
   outputs = { self, nixpkgs, nvf, home-manager, ... }@inputs: {
