@@ -5,7 +5,7 @@
   
   programs.virt-manager.enable = true;
 
-/*  programs.nvf = {
+  programs.nvf = {
     enable = true;
     enableManpages = true;
     settings = {
@@ -27,7 +27,7 @@
       vim.languages.enableTreesitter = true;
       vim.ui.nvim-highlight-colors.enable = true;
     };
-  }; */
+  };
 
   programs.hyprland = {
     enable = true;
