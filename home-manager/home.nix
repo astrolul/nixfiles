@@ -85,6 +85,7 @@
     figlet
     bitwarden-desktop
     gcr
+    seahorse
     (retroarch.withCores (cores: with cores; [
       mgba
       snes9x
