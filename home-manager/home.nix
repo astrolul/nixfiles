@@ -83,6 +83,8 @@
     gajim
     dipc
     figlet
+    bitwarden-desktop
+    gcr
     (retroarch.withCores (cores: with cores; [
       mgba
       snes9x
@@ -119,7 +121,6 @@
     };
     cmus = {
       enable = true;
-      theme = "gruvbox";
       extraConfig = ''
         set output_plugin=pulse
         set show_current_bitrate=true
@@ -174,10 +175,14 @@
     };
   };
 
+ services.gnome-keyring.enable = true;
+
  services.dunst = {
    enable = true;
    configFile = "/home/astrolul/nixos/misc/dunstrc";
-};
+ };
+
+ services.blueman-applet.enable = true;
 
  gtk = {
    enable = true;
