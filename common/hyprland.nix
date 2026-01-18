@@ -15,6 +15,7 @@
       "$emojimenu" = "wofi-emoji";
       "$printscreen" = "grim - | wl-copy";
       "$printscreensel" = "grim -g \"$(slurp)\" - | wl-copy";
+      "$colourpicker" = "hyprpicker -q -a -l";
       "$mainMod" = "SUPER";
 
       monitor = ",highrr,auto,auto";
@@ -43,8 +44,8 @@
         gaps_in = 0;
         gaps_out = 0;
         border_size = 0;
-        "col.active_border" = "rgba(d79921ee)";
-        "col.inactive_border" = "rgba(282a36ee)";
+        "col.active_border" = "rgba(21252bff)";
+        "col.inactive_border" = "rgba(282a36ff)";
         resize_on_border = false;
         allow_tearing = false;
         layout = "master";
@@ -63,9 +64,11 @@
         dim_strength = 0.1;
         shadow = {
           enabled = false;
-          range = 4;
-          render_power = 3;
-          color = "rgba(1a1a1aee)";
+          sharp = true;  # Makes the shadow hard-edged with no blur/falloff
+          range = 2;     # Shadow size in pixels (adjust for thickness; 1-3 mimics the image's thin shadow)
+          render_power = 4;  # Highest value for fastest falloff (sharper when combined with sharp=true)
+          color = "rgba(000000ff)";  # Solid black with full opacity
+          offset = "7.5 7.5";  # Shifts shadow down and right (x y; tweak for desired offset, e.g., "3 3" for more pronounced)
         };
         blur = {
           enabled = false;
@@ -158,6 +161,7 @@
         "$mainMod, V, togglefloating,"
         "$mainMod, space, exec, $menu"
         "$mainMod, P, exec, $powermenu"
+        "$mainMod, Q, exec, $colourpicker"
         # "$mainMod, P, pseudo," # commented in original
         "$mainMod, J, togglesplit,"
         "$mainMod, left, movefocus, l"

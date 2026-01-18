@@ -86,6 +86,7 @@
     bitwarden-desktop
     gcr
     seahorse
+    hyprpicker
     (retroarch.withCores (cores: with cores; [
       mgba
       snes9x
