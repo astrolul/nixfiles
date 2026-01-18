@@ -38,7 +38,7 @@
     yt-dlp
     statix
     gemini-cli
-    (ungoogled-chromium.override { enableWideVine = true; })
+    firefox-bin
     pcmanfm
     xarchiver
     unrar
