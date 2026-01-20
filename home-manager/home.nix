@@ -87,6 +87,7 @@
     gcr
     seahorse
     hyprpicker
+    nixfmt
     (retroarch.withCores (cores: with cores; [
       mgba
       snes9x
