@@ -1,14 +1,18 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   home.username = "astrolul";
   home.homeDirectory = "/home/astrolul";
   home.stateVersion = "25.11";
 
-  imports = 
-    [
-      ../common/hyprland.nix
-    ];
+  imports = [
+    ../common/hyprland.nix
+  ];
 
   home.packages = with pkgs; [
     wget
@@ -28,9 +32,11 @@
     fira-code
     brightnessctl
     (weechat.override {
-      configure = { availablePlugins, ... }: {
-        plugins = with availablePlugins; [ python ];
-      };
+      configure =
+        { availablePlugins, ... }:
+        {
+          plugins = with availablePlugins; [ python ];
+        };
     })
     streamrip
     hugo
@@ -88,11 +94,13 @@
     seahorse
     hyprpicker
     nixfmt
-    (retroarch.withCores (cores: with cores; [
-      mgba
-      snes9x
-    ]))
-  ];  
+    (retroarch.withCores (
+      cores: with cores; [
+        mgba
+        snes9x
+      ]
+    ))
+  ];
 
   programs = {
     chawan = {
@@ -120,7 +128,7 @@
       settings = {
         user.name = "astrolul";
         user.email = "85197489+astrolul@users.noreply.github.com";
-     };
+      };
     };
     cmus = {
       enable = true;
@@ -153,7 +161,7 @@
 
         EDITOR="nvim"
         SUDO_EDITOR="nvim"      
-        
+
         export PATH="$HOME/.cargo/bin:$PATH"
 
         if [[ $DISPLAY =~ ^:[0-9]+$ ]] && command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
@@ -178,35 +186,35 @@
     };
   };
 
- services.gnome-keyring.enable = true;
+  services.gnome-keyring.enable = true;
 
- services.dunst = {
-   enable = true;
-   configFile = "/home/astrolul/nixos/misc/dunstrc";
- };
+  services.dunst = {
+    enable = true;
+    configFile = "/home/astrolul/nixos/misc/dunstrc";
+  };
 
- services.blueman-applet.enable = true;
+  services.blueman-applet.enable = true;
 
- gtk = {
-   enable = true;
-   theme = {
-     name = "Arc-Dark";
-     package = pkgs.arc-theme;
-   };
-   font = {
-     name = "FiraCode Nerd Font Regular";
-     size = 11;
-   };
- };
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Arc-Dark";
+      package = pkgs.arc-theme;
+    };
+    font = {
+      name = "FiraCode Nerd Font Regular";
+      size = 11;
+    };
+  };
 
- home.pointerCursor = {
-   gtk.enable = true;   # Ensures GTK apps (including those on Wayland) use this cursor
-   hyprcursor.enable = true;   # Registers the cursor for X11 sessions (e.g., root window, WM)
-   name = "Bibata-Original-Ice";
-   package = pkgs.bibata-cursors;
-   size = 24;
- };
+  home.pointerCursor = {
+    gtk.enable = true; # Ensures GTK apps (including those on Wayland) use this cursor
+    hyprcursor.enable = true; # Registers the cursor for X11 sessions (e.g., root window, WM)
+    name = "Bibata-Original-Ice";
+    package = pkgs.bibata-cursors;
+    size = 24;
+  };
 
- xdg.configFile."gtk-3.0/settings.ini".force = true;
+  xdg.configFile."gtk-3.0/settings.ini".force = true;
 
 }
