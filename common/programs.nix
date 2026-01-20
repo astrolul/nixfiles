@@ -24,7 +24,15 @@
       vim.statusline.lualine.enable = true;
       vim.visuals.nvim-scrollbar.enable = true;
       vim.autocomplete.nvim-cmp.enable = true;
-      vim.languages.nix.enable = true;
+      vim.languages.nix = {
+        enable = true;
+        format = {
+          enable = true;
+          type = [
+            "nixfmt"
+          ];
+        };
+      };
       vim.languages.clang.enable = true;
       vim.languages.markdown.enable = true;
       vim.languages.python.enable = true;
