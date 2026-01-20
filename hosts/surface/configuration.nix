@@ -2,22 +2,27 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../common/users.nix 
-      ../../common/system.nix
-      ../../common/programs.nix
-      ../../common/services.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../common/users.nix
+    ../../common/system.nix
+    ../../common/programs.nix
+    ../../common/services.nix
+  ];
 
   # Bootloader.
 
   boot.loader = {
-    efi.canTouchEfiVariables = true;  # Required for UEFI
+    efi.canTouchEfiVariables = true; # Required for UEFI
     systemd-boot = {
       enable = true;
       editor = true;
@@ -33,7 +38,7 @@
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
-        
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -52,10 +57,13 @@
   qt = {
     enable = true;
     platformTheme = "gtk2";
-#    style.name = "gtk2";
+    #    style.name = "gtk2";
   };
 
-  environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
+  environment.pathsToLink = [
+    "/share/applications"
+    "/share/xdg-desktop-portal"
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
