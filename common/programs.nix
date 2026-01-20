@@ -1,8 +1,13 @@
-{ config, pkgs, inputs, ... }:
 {
- 
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+{
+
   programs.dconf.enable = true;
-  
+
   programs.virt-manager.enable = true;
 
   programs.nvf = {

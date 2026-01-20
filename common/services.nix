@@ -1,17 +1,36 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 {
 
-services.blueman.enable = true;
+  services.blueman.enable = true;
 
-services.flatpak.enable = true;
+  services.flatpak.enable = true;
 
   services.pipewire.wireplumber.extraConfig.bluetoothEnhancements = {
     "monitor.bluez.properties" = {
       "bluez5.enable-sbc-xq" = true;
       "bluez5.enable-msbc" = true;
       "bluez5.enable-hw-volume" = true;
-      "bluez5.roles" = [ "a2dp_sink" "a2dp_source" "hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag" ];
-      "bluez5.codecs" = [ "sbc" "sbc_xq" "aac" "aptx" "aptx_hd" "ldac" ];
+      "bluez5.roles" = [
+        "a2dp_sink"
+        "a2dp_source"
+        "hsp_hs"
+        "hsp_ag"
+        "hfp_hf"
+        "hfp_ag"
+      ];
+      "bluez5.codecs" = [
+        "sbc"
+        "sbc_xq"
+        "aac"
+        "aptx"
+        "aptx_hd"
+        "ldac"
+      ];
     };
   };
 
@@ -22,7 +41,7 @@ services.flatpak.enable = true;
   };
 
   services.displayManager.ly.enable = true;
-  
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -31,14 +50,14 @@ services.flatpak.enable = true;
     pulse.enable = true;
   };
 
-services.hardware.openrgb = { 
-  enable = true; 
-  package = pkgs.openrgb-with-all-plugins; 
-  motherboard = "amd"; 
-  server = { 
-    port = 6742; 
+  services.hardware.openrgb = {
+    enable = true;
+    package = pkgs.openrgb-with-all-plugins;
+    motherboard = "amd";
+    server = {
+      port = 6742;
+    };
   };
-};
 
   services.openssh.enable = true;
 

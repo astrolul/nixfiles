@@ -8,7 +8,10 @@
   nix.gc.options = "--delete-older-than 14d";
   nix.settings.auto-optimise-store = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Set your time zone.
   time.timeZone = "Europe/London";

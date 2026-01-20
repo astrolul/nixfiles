@@ -1,4 +1,9 @@
-{ config, pkgs, input, ... }:
+{
+  config,
+  pkgs,
+  input,
+  ...
+}:
 
 {
   wayland.windowManager.hyprland = {
@@ -22,10 +27,10 @@
 
       plugins = {
         "csgo-vulkan-fix" = {
-          res_w = 1920;  # Desired width (e.g., for stretched res)
-          res_h = 1080;  # Desired height
-          class = "csgo_linux64";  # Window class of the app (check with `hyprctl clients`)
-          fix_mouse = true;  # Fixes mouse position; disable if it causes issues
+          res_w = 1920; # Desired width (e.g., for stretched res)
+          res_h = 1080; # Desired height
+          class = "csgo_linux64"; # Window class of the app (check with `hyprctl clients`)
+          fix_mouse = true; # Fixes mouse position; disable if it causes issues
         };
       };
 
@@ -64,11 +69,11 @@
         dim_strength = 0.1;
         shadow = {
           enabled = false;
-          sharp = true;  # Makes the shadow hard-edged with no blur/falloff
-          range = 2;     # Shadow size in pixels (adjust for thickness; 1-3 mimics the image's thin shadow)
-          render_power = 4;  # Highest value for fastest falloff (sharper when combined with sharp=true)
-          color = "rgba(000000ff)";  # Solid black with full opacity
-          offset = "7.5 7.5";  # Shifts shadow down and right (x y; tweak for desired offset, e.g., "3 3" for more pronounced)
+          sharp = true; # Makes the shadow hard-edged with no blur/falloff
+          range = 2; # Shadow size in pixels (adjust for thickness; 1-3 mimics the image's thin shadow)
+          render_power = 4; # Highest value for fastest falloff (sharper when combined with sharp=true)
+          color = "rgba(000000ff)"; # Solid black with full opacity
+          offset = "7.5 7.5"; # Shifts shadow down and right (x y; tweak for desired offset, e.g., "3 3" for more pronounced)
         };
         blur = {
           enabled = false;
@@ -188,9 +193,9 @@
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
-#        "$mainMod, S, togglespecialworkspace, magic"
+        #        "$mainMod, S, togglespecialworkspace, magic"
         "$mainMod, S, exec, $printscreen"
-#        "$mainMod SHIFT, S, movetoworkspace, special:magic"
+        #        "$mainMod SHIFT, S, movetoworkspace, special:magic"
         "$mainMod SHIFT, S, exec, $printscreensel"
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
@@ -244,7 +249,7 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [ 
+      preload = [
         "/home/astrolul/nixos/misc/wallpaper.png"
         "/home/astrolul/nixos/misc/wallpaper-2.png"
         "/home/astrolul/nixos/misc/wallpaper-3.jpeg"

@@ -3,8 +3,13 @@
   users.users.astrolul = {
     isNormalUser = true;
     description = "astrolul";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "adbusers" ];
-    packages = with pkgs; [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "libvirtd"
+      "adbusers"
+    ];
+    packages = with pkgs; [ ];
   };
 
   users.users.astrolul.openssh.authorizedKeys.keys = [
