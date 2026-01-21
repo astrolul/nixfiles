@@ -19,6 +19,7 @@
       vim.theme.enable = true;
       vim.theme.name = "onedark";
       vim.theme.style = "dark";
+      vim.dashboard.alpha.enable = true;
       vim.highlight.Normal.bg = null;
       vim.highlight.Normal.ctermbg = null;
       vim.statusline.lualine.enable = true;
