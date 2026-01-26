@@ -145,7 +145,7 @@
     btop = {
       enable = true;
       settings = {
-        color_theme = "onedark";
+        color_theme = "gruvbox_light";
         theme_background = false;
         truecolor = true;
       };
@@ -181,7 +181,7 @@
       extraConfig = ''
         set-option -sa terminal-overrides ",tmux-256color*:Tc"
         set -g status-style bg=default
-        set -g status-fg "#98c379"
+        set -g status-fg "#d79921"
       '';
     };
   };
@@ -198,8 +198,8 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Arc-Dark";
-      package = pkgs.arc-theme;
+      name = "Gruvbox-Light";
+      package = pkgs.gruvbox-gtk-theme;
     };
     font = {
       name = "FiraCode Nerd Font Regular";

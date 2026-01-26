@@ -11,23 +11,23 @@
 /* Styles */
 
 /* Colors (OneDark) */
-@define-color bg2	#282c34;
-@define-color red	#e06c75;
-@define-color green	#98c379;
-@define-color yellow	#e5c07b;
-@define-color blue	#61afef;
-@define-color purple	#c678dd;
-@define-color aqua	#56b6c2;
-@define-color gray	#abb2bf;
-@define-color brgray	#3f4451;
-@define-color brred	#e06c75;
-@define-color brgreen	#98c379;
-@define-color bryellow	#e5c07b;
-@define-color brblue	#61afef;
-@define-color brpurple	#c678dd;
-@define-color braqua	#56b6c2;
-@define-color white	#abb2bf;
-@define-color black	#21252b;
+@define-color bg2	#d79921;
+@define-color red	#9d0006;
+@define-color green	#79740e;
+@define-color yellow	#b57614;
+@define-color blue	#076678;
+@define-color purple	#8f3f71;
+@define-color aqua	#427b58;
+@define-color gray	#928374;
+@define-color brgray	#7c6f64;
+@define-color brred	#cc241d;
+@define-color brgreen	#98971a;
+@define-color bryellow	#d79921;
+@define-color brblue	#458588;
+@define-color brpurple	#b16286;
+@define-color braqua	#689d6a;
+@define-color white	#f9f5d7;
+@define-color black	#7c6f64;
 
 @define-color warning 	@bryellow;
 @define-color critical	@red;
@@ -59,8 +59,8 @@
 
 /* The whole bar */
 #waybar {
-	background: #21252b;
-	color: @white;
+	background: #fbf1c7;
+	color: @black;
 	font-family: FiraCode Nerd Font;
 	font-size: 10pt;
 	/*font-weight: bold;*/

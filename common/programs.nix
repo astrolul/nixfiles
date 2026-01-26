@@ -17,8 +17,8 @@
       vim.vimAlias = true;
       vim.viAlias = true;
       vim.theme.enable = true;
-      vim.theme.name = "onedark";
-      vim.theme.style = "dark";
+      vim.theme.name = "gruvbox";
+      vim.theme.style = "light";
       vim.dashboard.alpha.enable = true;
       vim.highlight.Normal.bg = null;
       vim.highlight.Normal.ctermbg = null;
@@ -60,7 +60,7 @@
 
   programs.foot = {
     enable = true;
-    theme = "onedark";
+    theme = "gruvbox-light";
     settings = {
       main = {
         font = "FiraCode Nerd Font:size=12";

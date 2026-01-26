@@ -46,11 +46,11 @@
       ];
 
       general = {
-        gaps_in = 0;
-        gaps_out = 0;
-        border_size = 0;
-        "col.active_border" = "rgba(21252bff)";
-        "col.inactive_border" = "rgba(282a36ff)";
+        gaps_in = 5;
+        gaps_out = 10;
+        border_size = 3;
+        "col.active_border" = "rgba(d79921ff)";
+        "col.inactive_border" = "rgba(bdae93ff)";
         resize_on_border = false;
         allow_tearing = false;
         layout = "master";
@@ -260,9 +260,10 @@
         "/home/astrolul/nixos/misc/wallpaper-7.png"
         "/home/astrolul/nixos/misc/wallpaper-8.png"
         "/home/astrolul/nixos/misc/wallpaper-8-onedark.png"
-        "/home/astrolul/nixos/misc/wallpaper-9-onedark.png"
+        "/home/astrolul/nixos/misc/wallpaper-9-onedark.png" 
+        "/home/astrolul/nixos/misc/gruvbox-bible-light.png"
       ];
-      wallpaper = [ ",/home/astrolul/nixos/misc/wallpaper-9-onedark.png" ];
+      wallpaper = [ ",/home/astrolul/nixos/misc/gruvbox-bible-light.png" ];
     };
   };
 
