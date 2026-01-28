@@ -42,7 +42,6 @@
           "org/gnome/desktop/wm/preferences" = {
             action-middle-click-titlebar = "minimize";
             button-layout = "appmenu:minimize,close";
-            num-workspaces = lib.gvariant.mkInt32 5;
           };
 
           "org/gnome/desktop/background" = {
