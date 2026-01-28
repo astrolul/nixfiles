@@ -10,10 +10,6 @@
   home.homeDirectory = "/home/astrolul";
   home.stateVersion = "25.11";
 
-  imports = [
-    ../common/hyprland.nix
-  ];
-
   home.packages = with pkgs; [
     wget
     git
@@ -60,18 +56,9 @@
     libreoffice
     qbittorrent
     corefonts
-    foot
-    waybar
-    wofi
-    hyprpaper
-    hypridle
-    slurp
-    grim
     vesktop
     wl-clipboard
     cmatrix
-    wofi-power-menu
-    wofi-emoji
     parsec-bin
     inetutils
     nmap
@@ -92,7 +79,6 @@
     bitwarden-desktop
     gcr
     seahorse
-    hyprpicker
     nixfmt
     (retroarch.withCores (
       cores: with cores; [
@@ -188,23 +174,9 @@
 
   services.gnome-keyring.enable = true;
 
-  services.dunst = {
+  dconf = {
     enable = true;
-    configFile = "/home/astrolul/nixos/misc/dunstrc";
-  };
-
-  services.blueman-applet.enable = true;
-
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Gruvbox-Light";
-      package = pkgs.gruvbox-gtk-theme;
-    };
-    font = {
-      name = "FiraCode Nerd Font Regular";
-      size = 11;
-    };
+    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
   };
 
   home.pointerCursor = {
@@ -214,7 +186,5 @@
     package = pkgs.bibata-cursors;
     size = 24;
   };
-
-  xdg.configFile."gtk-3.0/settings.ini".force = true;
 
 }

@@ -40,7 +40,7 @@
     };
   };
 
-  services.displayManager.ly.enable = true;
+#  services.displayManager.ly.enable = true;
 
   security.rtkit.enable = true;
   services.pipewire = {

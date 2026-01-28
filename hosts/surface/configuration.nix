@@ -17,6 +17,7 @@
     ../../common/system.nix
     ../../common/programs.nix
     ../../common/services.nix
+    ../../common/gnome.nix
   ];
 
   # Bootloader.
@@ -52,7 +53,10 @@
   hardware.enableAllFirmware = true;
   hardware.bluetooth.enable = true;
 
-  services.tlp.enable = true;
+  services.xserver = {
+    layout = "gb";
+    xkbVariant = "";  # Leave empty for standard UK; use "intl" or "mac" if you need a variant
+  };
 
   qt = {
     enable = true;
