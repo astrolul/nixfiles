@@ -59,12 +59,6 @@
   hardware.enableAllFirmware = true;
   hardware.bluetooth.enable = true;
 
-  qt = {
-    enable = true;
-    platformTheme = "gtk2";
-    #    style.name = "gtk2";
-  };
-
   environment.pathsToLink = [
     "/share/applications"
     "/share/xdg-desktop-portal"
