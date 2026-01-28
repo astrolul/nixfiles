@@ -23,6 +23,7 @@
 
   environment.systemPackages = with pkgs; [
     gnomeExtensions.dash-to-dock
+    gnomeExtensions.appindicator
   ];
 
   # Enable fractional scaling (150% will appear in Settings > Displays)
@@ -38,6 +39,12 @@
             experimental-features = [ "scale-monitor-framebuffer" ];
           };
 
+          "org/gnome/desktop/wm/preferences" = {
+            action-middle-click-titlebar = "minimize";
+            button-layout = "appmenu:minimize,close";
+            num-workspaces = lib.gvariant.mkInt32 5;
+          };
+
           "org/gnome/desktop/background" = {
             picture-uri = "file:///home/astrolul/nixos/misc/saturn.jpg";
             picture-uri-dark = "file:///home/astrolul/nixos/misc/saturn.jpg";
@@ -47,7 +54,7 @@
           "org/gnome/shell/extensions/dash-to-dock" = {
             always-center-icons = true;
             autohide = true;
-            background-opacity = 0.25;
+            background-opacity = 0.50;
             dash-max-icon-size = lib.gvariant.mkInt32 64;
             dock-fixed = false;
             dock-position = "BOTTOM";
@@ -59,6 +66,12 @@
             show-show-apps-button = false;
             show-trash = false;
             transparency-mode = "FIXED";
+          };
+
+          "org/gnome/shell/extensions/appindicator" = {
+            icon-size = lib.gvariant.mkInt32 22; # pixel size (wrap integers!)
+            icon-padding = lib.gvariant.mkInt32 4;
+            tray-pos = "right"; # or "left"
           };
 
           "org/gnome/Console" = {
@@ -80,6 +93,7 @@
             disable-user-extensions = false; # important if you have any other extensions
             enabled-extensions = [
               "dash-to-dock@micxgx.gmail.com"
+              "appindicator@ubuntu.com"
             ];
           };
 
