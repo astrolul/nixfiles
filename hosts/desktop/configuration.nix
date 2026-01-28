@@ -78,6 +78,11 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
 
+  services.xserver = {
+    xkb.layout = "gb";
+    xkb.variant = "";  # Leave empty for standard UK; use "intl" or "mac" if you need a variant
+  };
+
   hardware.nvidia = {
 
     # Modesetting is required.
