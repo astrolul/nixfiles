@@ -33,6 +33,12 @@
             experimental-features = [ "scale-monitor-framebuffer" ];
           };
 
+          "org/gnome/desktop/background" = {
+            picture-uri       = "file:///home/astrolul/nixos/misc/saturn.jpg";
+            picture-uri-dark  = "file:///home/astrolul/nixos/misc/saturn.jpg";
+            picture-options   = "zoom";
+          };
+
           "org/gnome/Console" = {
             audible-bell = false; # Disables the audible bell sound
             visual-bell = false;

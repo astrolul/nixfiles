@@ -18,7 +18,7 @@
       vim.viAlias = true;
       vim.theme.enable = true;
       vim.theme.name = "gruvbox";
-      vim.theme.style = "light";
+      vim.theme.style = "dark";
       vim.dashboard.alpha.enable = true;
       vim.highlight.Normal.bg = null;
       vim.highlight.Normal.ctermbg = null;
@@ -43,11 +43,6 @@
     };
   };
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
@@ -57,20 +52,6 @@
   };
 
   programs.gamemode.enable = true;
-
-  programs.foot = {
-    enable = true;
-    theme = "gruvbox-light";
-    settings = {
-      main = {
-        font = "FiraCode Nerd Font:size=12";
-        pad = "15x15";
-      };
-      colors = {
-        alpha = 1.0;
-      };
-    };
-  };
 
   programs.nix-ld.enable = true;
 
