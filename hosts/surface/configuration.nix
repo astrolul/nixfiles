@@ -54,8 +54,8 @@
   hardware.bluetooth.enable = true;
 
   services.xserver = {
-    layout = "gb";
-    xkbVariant = "";  # Leave empty for standard UK; use "intl" or "mac" if you need a variant
+    xkb.layout = "gb";
+    xkb.variant = "";  # Leave empty for standard UK; use "intl" or "mac" if you need a variant
   };
 
   qt = {
