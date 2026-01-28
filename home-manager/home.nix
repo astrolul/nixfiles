@@ -14,8 +14,6 @@
     wget
     git
     stow
-    feh
-    pavucontrol
     flashprog
     pciutils
     ffmpeg
@@ -41,7 +39,6 @@
     statix
     gemini-cli
     firefox-bin
-    pcmanfm
     xarchiver
     unrar
     nicotine-plus
@@ -118,6 +115,7 @@
     };
     cmus = {
       enable = true;
+      theme = "gruvbox";
       extraConfig = ''
         set output_plugin=pulse
         set show_current_bitrate=true
@@ -131,7 +129,7 @@
     btop = {
       enable = true;
       settings = {
-        color_theme = "gruvbox_light";
+        color_theme = "gruvbox_dark_v2";
         theme_background = false;
         truecolor = true;
       };
@@ -167,7 +165,7 @@
       extraConfig = ''
         set-option -sa terminal-overrides ",tmux-256color*:Tc"
         set -g status-style bg=default
-        set -g status-fg "#d79921"
+        set -g status-fg "#fabd2f"
       '';
     };
   };
@@ -177,14 +175,6 @@
   dconf = {
     enable = true;
     settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
-  };
-
-  home.pointerCursor = {
-    gtk.enable = true; # Ensures GTK apps (including those on Wayland) use this cursor
-    hyprcursor.enable = true; # Registers the cursor for X11 sessions (e.g., root window, WM)
-    name = "Bibata-Original-Ice";
-    package = pkgs.bibata-cursors;
-    size = 24;
   };
 
 }

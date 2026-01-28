@@ -58,12 +58,6 @@
     xkb.variant = "";  # Leave empty for standard UK; use "intl" or "mac" if you need a variant
   };
 
-  qt = {
-    enable = true;
-    platformTheme = "gtk2";
-    #    style.name = "gtk2";
-  };
-
   environment.pathsToLink = [
     "/share/applications"
     "/share/xdg-desktop-portal"

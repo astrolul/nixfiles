@@ -26,6 +26,12 @@
     gnomeExtensions.appindicator
   ];
 
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark";
+  };
+
   # Enable fractional scaling (150% will appear in Settings > Displays)
   programs.dconf = {
     enable = true;
@@ -39,7 +45,16 @@
             experimental-features = [ "scale-monitor-framebuffer" ];
           };
 
+          "org/gnome/desktop/interface" = {
+            font-name = "FiraCode Nerd Font 11"; # Interface font (UI elements, menus, etc.)
+            document-font-name = "FiraCode Nerd Font 11"; # Used in documents/apps (e.g., LibreOffice)
+            monospace-font-name = "FiraCode Nerd Font 13"; # Terminal/code editors
+            text-scaling-factor = 1.0;
+            accent-color = "yellow"; # Change to your preferred color
+          };
+
           "org/gnome/desktop/wm/preferences" = {
+            titlebar-font = "FiraCode Nerd Font 11";
             action-middle-click-titlebar = "minimize";
             button-layout = "appmenu:minimize,close";
           };
@@ -62,7 +77,7 @@
             intellihide = true;
             show-apps-at-top = true;
             show-mounts = false;
-            show-show-apps-button = false;
+            show-show-apps-button = true;
             show-trash = false;
             transparency-mode = "FIXED";
           };
