@@ -9,7 +9,6 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
-  # Your existing settings...
   services.gnome.core-apps.enable = true;
   services.gnome.core-developer-tools.enable = true;
   services.gnome.games.enable = false;
@@ -19,6 +18,7 @@
     epiphany
     gedit
     geary
+    gnome-console
   ];
 
   environment.systemPackages = with pkgs; [
@@ -32,13 +32,10 @@
     style = "adwaita-dark";
   };
 
-  # Enable fractional scaling (150% will appear in Settings > Displays)
   programs.dconf = {
     enable = true;
     profiles.user.databases = [
       {
-
-        lockAll = true;
 
         settings = {
           "org/gnome/mutter" = {
@@ -51,6 +48,16 @@
             monospace-font-name = "FiraCode Nerd Font 13"; # Terminal/code editors
             text-scaling-factor = 1.0;
             accent-color = "yellow"; # Change to your preferred color
+          };
+
+          "org/gnome/Ptyxis/Profiles/8107591df992b3f119b55c31697aa615/palette" = {
+            palette = "Gruvbox";
+          };
+
+          "org/gnome/Ptyxis" = {
+            visual-bell = false;
+            audible-bell = false;
+            restore-session = false;
           };
 
           "org/gnome/desktop/wm/preferences" = {
@@ -100,8 +107,11 @@
           "org/gnome/shell" = {
             favorite-apps = [
               "firefox.desktop"
-              "org.gnome.Console.desktop" # Terminal
-              "nvim.desktop" # Text Editor (example)
+              "org.gnome.Ptyxis.desktop" # Terminal
+              "org.gajim.Gajim.desktop"
+              "vesktop.desktop"
+              "bitwarden.desktop"
+              "cider-2.desktop"
               "org.gnome.Nautilus.desktop" # Files
             ];
             disable-user-extensions = false; # important if you have any other extensions
