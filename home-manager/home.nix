@@ -77,6 +77,7 @@
     gcr
     seahorse
     nixfmt
+    kdePackages.kdenlive
     (retroarch.withCores (
       cores: with cores; [
         mgba

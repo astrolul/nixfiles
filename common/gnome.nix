@@ -50,7 +50,7 @@
             accent-color = "yellow"; # Change to your preferred color
           };
 
-          "org/gnome/Ptyxis/Profiles/8107591df992b3f119b55c31697aa615/palette" = {
+          "org/gnome/Ptyxis/Profiles/bbf1f97b6556ccdc7c6444a3697aacfa" = {
             palette = "Gruvbox";
           };
 
@@ -58,6 +58,11 @@
             visual-bell = false;
             audible-bell = false;
             restore-session = false;
+            default-profile-uuid = "bbf1f97b6556ccdc7c6444a3697aacfa";
+          };
+
+          "org/gnome/Ptyxis/Shortcuts" = {
+            new-tab = "<Control>b";
           };
 
           "org/gnome/desktop/wm/preferences" = {
