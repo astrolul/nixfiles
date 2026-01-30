@@ -211,6 +211,7 @@ in
               "appindicatorsupport@rgcjonas.gmail.com"
               "desktop-cube@schneegans.github.com"
               "blur-my-shell@aunetx"
+              "gsconnect@andyholmes.github.io"
             ];
           };
 
