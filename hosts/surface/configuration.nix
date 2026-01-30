@@ -55,7 +55,7 @@
 
   services.xserver = {
     xkb.layout = "gb";
-    xkb.variant = "";  # Leave empty for standard UK; use "intl" or "mac" if you need a variant
+    xkb.variant = ""; # Leave empty for standard UK; use "intl" or "mac" if you need a variant
   };
 
   environment.pathsToLink = [
@@ -70,9 +70,14 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  
+
   networking.firewall = rec {
-    allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+    allowedTCPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
     allowedUDPPortRanges = allowedTCPPortRanges;
   };
 

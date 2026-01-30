@@ -90,18 +90,19 @@
     firefox = {
       enable = true;
 
-      profiles.default = {  # or replace "default" with your profile name (e.g., "personal")
+      profiles.default = {
+        # or replace "default" with your profile name (e.g., "personal")
         name = "Default";
         settings = {
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
           "svg.context-properties.content.enabled" = true;
 
-          "browser.uidensity" = 0;  # compact UI
+          "browser.uidensity" = 0; # compact UI
           "browser.theme.dark-private-windows" = false;
-          "gnomeTheme.hideSingleTab" = true;  # hide tab bar with one tab (toggle via about:config)
-          "gnomeTheme.tabsAsHeaderbar" = true;  # tabs in headerbar
+          "gnomeTheme.hideSingleTab" = true; # hide tab bar with one tab (toggle via about:config)
+          "gnomeTheme.tabsAsHeaderbar" = true; # tabs in headerbar
 
-          "layers.acceleration.force-enabled" = true;  # Key workaround from firefox-gnome-theme README & Mozilla bugs
+          "layers.acceleration.force-enabled" = true; # Key workaround from firefox-gnome-theme README & Mozilla bugs
           "gfx.webrender.all" = true;
 
           "browser.compactmode.show" = true;
@@ -201,7 +202,8 @@
     };
   };
 
-  home.file.".mozilla/firefox/default/chrome/firefox-gnome-theme".source = "${pkgs.firefox-gnome-theme}/";
+  home.file.".mozilla/firefox/default/chrome/firefox-gnome-theme".source =
+    "${pkgs.firefox-gnome-theme}/";
 
   services.gnome-keyring.enable = true;
 

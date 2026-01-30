@@ -62,5 +62,4 @@
     package = pkgs.gnomeExtensions.gsconnect;
   };
 
-
 }

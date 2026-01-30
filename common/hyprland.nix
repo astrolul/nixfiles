@@ -260,7 +260,7 @@
         "/home/astrolul/nixos/misc/wallpaper-7.png"
         "/home/astrolul/nixos/misc/wallpaper-8.png"
         "/home/astrolul/nixos/misc/wallpaper-8-onedark.png"
-        "/home/astrolul/nixos/misc/wallpaper-9-onedark.png" 
+        "/home/astrolul/nixos/misc/wallpaper-9-onedark.png"
         "/home/astrolul/nixos/misc/gruvbox-bible-light.png"
       ];
       wallpaper = [ ",/home/astrolul/nixos/misc/gruvbox-bible-light.png" ];

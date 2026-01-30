@@ -41,7 +41,7 @@
   services.geoclue2.enable = true;
 
   services.printing.enable = true;
-  
+
   services.avahi = {
     enable = true;
     nssmdns4 = true;
