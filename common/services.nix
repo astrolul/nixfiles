@@ -38,7 +38,7 @@
     };
   };
 
-#  services.displayManager.ly.enable = true;
+  services.geoclue2.enable = true;
 
   security.rtkit.enable = true;
   services.pipewire = {

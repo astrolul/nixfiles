@@ -5,6 +5,9 @@
   ...
 }:
 
+let
+  inherit (lib.gvariant) mkInt32 mkDouble; # Helpers available module-wide
+in
 {
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
@@ -24,7 +27,23 @@
   environment.systemPackages = with pkgs; [
     gnomeExtensions.dash-to-dock
     gnomeExtensions.appindicator
+    libayatana-appindicator
+    gnomeExtensions.desktop-cube
+    gnomeExtensions.blur-my-shell
   ];
+
+  services.udev.packages = [
+    pkgs.gnome-settings-daemon
+  ];
+
+  xdg.terminal-exec = {
+    enable = true;
+    settings = {
+      default = [
+        "org.gnome.Ptyxis.desktop"
+      ];
+    };
+  };
 
   qt = {
     enable = true;
@@ -87,7 +106,7 @@
             extend-height = false;
             height-fraction = 0.90000000000000002;
             intellihide = true;
-            show-apps-at-top = true;
+            show-apps-at-top = false;
             show-mounts = false;
             show-show-apps-button = true;
             show-trash = false;
@@ -103,6 +122,72 @@
           "org/gnome/Console" = {
             audible-bell = false; # Disables the audible bell sound
             visual-bell = false;
+          };
+
+          # Global / main schema
+          "org/gnome/shell/extensions/blur-my-shell" = {
+            settings-version = mkInt32 2;
+          };
+
+          # App folders (blur on app folders/dialogs)
+          "org/gnome/shell/extensions/blur-my-shell/appfolder" = {
+            brightness = mkDouble 0.6;
+            sigma = mkInt32 30;
+          };
+
+          # Applications (blur behind windows)
+          "org/gnome/shell/extensions/blur-my-shell/applications" = {
+            blur = false;
+            blur-on-overview = false;
+            enable-all = false;
+          };
+
+          # Coverflow Alt-Tab (window switcher)
+          "org/gnome/shell/extensions/blur-my-shell/coverflow-alt-tab" = {
+            pipeline = "pipeline_default";
+          };
+
+          # Dash to Dock (your bottom dock; custom brightness/sigma, rounded pipeline)
+          "org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
+            blur = true;
+            brightness = mkDouble 0.47;
+            override-background = true;
+            pipeline = "pipeline_default_rounded";
+            sigma = mkInt32 37;
+            static-blur = true;
+            style-dash-to-dock = mkInt32 2; # 2 = dark (matches your Gruvbox preference)
+            unblur-in-overview = false;
+          };
+
+          # Lockscreen
+          "org/gnome/shell/extensions/blur-my-shell/lockscreen" = {
+            pipeline = "pipeline_default";
+          };
+
+          # Overview (static blur on workspace grid)
+          "org/gnome/shell/extensions/blur-my-shell/overview" = {
+            pipeline = "pipeline_default";
+          };
+
+          # Panel (top bar; now with static blur enabled)
+          "org/gnome/shell/extensions/blur-my-shell/panel" = {
+            brightness = mkDouble 0.6;
+            force-light-text = false;
+            pipeline = "pipeline_default";
+            sigma = mkInt32 30;
+            static-blur = true; # Changed from previous false → true (static blur for better performance/consistency)
+            unblur-in-overview = true;
+          };
+
+          # Screenshot UI
+          "org/gnome/shell/extensions/blur-my-shell/screenshot" = {
+            pipeline = "pipeline_default";
+          };
+
+          # Window list (taskbar-like if enabled; only brightness set here)
+          "org/gnome/shell/extensions/blur-my-shell/window-list" = {
+            brightness = mkDouble 0.6;
+            # sigma not present in this dump (uses default or previously set value if any)
           };
 
           "org/gnome/desktop/peripherals/touchpad" = {
@@ -123,6 +208,9 @@
             enabled-extensions = [
               "dash-to-dock@micxgx.gmail.com"
               "appindicator@ubuntu.com"
+              "appindicatorsupport@rgcjonas.gmail.com"
+              "desktop-cube@schneegans.github.com"
+              "blur-my-shell@aunetx"
             ];
           };
 
