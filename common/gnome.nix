@@ -190,6 +190,10 @@ in
             # sigma not present in this dump (uses default or previously set value if any)
           };
 
+          "org/gnome/system/location" = {
+            enabled = true;
+          };
+
           "org/gnome/desktop/peripherals/touchpad" = {
             click-method = "areas"; # Use this instead if you prefer physical bottom-right press
           };
