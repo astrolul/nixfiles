@@ -61,6 +61,10 @@ in
             experimental-features = [ "scale-monitor-framebuffer" ];
           };
 
+          "org/gnome/desktop/input-sources" = {
+            sources = [ (lib.gvariant.mkTuple [ "xkb" "gb" ]) ];
+          };
+
           "org/gnome/desktop/interface" = {
             font-name = "FiraCode Nerd Font 11"; # Interface font (UI elements, menus, etc.)
             document-font-name = "FiraCode Nerd Font 11"; # Used in documents/apps (e.g., LibreOffice)
