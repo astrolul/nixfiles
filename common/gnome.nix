@@ -91,8 +91,8 @@ in
           };
 
           "org/gnome/desktop/background" = {
-            picture-uri = "file:///home/astrolul/nixos/misc/saturn.jpg";
-            picture-uri-dark = "file:///home/astrolul/nixos/misc/saturn.jpg";
+            picture-uri = "file:///home/astrolul/nixos/misc/anime.jpeg";
+            picture-uri-dark = "file:///home/astrolul/nixos/misc/anime.jpeg";
             picture-options = "zoom";
           };
 
