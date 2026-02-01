@@ -58,6 +58,7 @@
     parsec-bin
     inetutils
     nmap
+    wireshark
     python313Packages.python-kasa
     audacity
     superTuxKart

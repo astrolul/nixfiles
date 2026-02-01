@@ -206,6 +206,7 @@ in
               "vesktop.desktop"
               "bitwarden.desktop"
               "cider-2.desktop"
+              "org.wireshark.Wireshark.desktop"
               "org.gnome.Nautilus.desktop" # Files
             ];
             disable-user-extensions = false; # important if you have any other extensions
