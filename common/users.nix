@@ -8,6 +8,7 @@
       "wheel"
       "libvirtd"
       "adbusers"
+      "video"
     ];
     packages = with pkgs; [ ];
   };

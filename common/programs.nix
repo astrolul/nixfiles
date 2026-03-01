@@ -18,7 +18,7 @@
       vim.viAlias = true;
       vim.theme.enable = true;
       vim.theme.name = "gruvbox";
-      vim.theme.style = "light";
+      vim.theme.style = "dark";
       vim.dashboard.alpha.enable = true;
       vim.highlight.Normal.bg = null;
       vim.highlight.Normal.ctermbg = null;
@@ -43,9 +43,12 @@
     };
   };
 
-  programs.hyprland = {
+  programs.sway = {
     enable = true;
-    xwayland.enable = true;
+  };
+
+  programs.light = {
+    enable = true;
   };
 
   programs.steam = {
@@ -60,14 +63,39 @@
 
   programs.foot = {
     enable = true;
-    theme = "gruvbox-light";
     settings = {
       main = {
         font = "FiraCode Nerd Font:size=12";
         pad = "15x15";
       };
+      
       colors = {
         alpha = 1.0;
+
+        # Special colours
+        foreground = "c5c8c6";
+        background = "1d1f21";
+        cursor = "c5c8c6";
+
+        # Normal colours (0-7)
+        regular0 = "1d1f21";   # black
+        regular1 = "cc342b";   # red
+        regular2 = "198844";   # green
+        regular3 = "fba922";   # yellow
+        regular4 = "3971ed";   # blue
+        regular5 = "a36ac7";   # magenta
+        regular6 = "3971ed";   # cyan (same as blue in this scheme)
+        regular7 = "c5c8c6";   # white
+
+        # Bright colours (8-15)
+        bright0 = "969896";    # bright black
+        bright1 = "cc342b";    # bright red
+        bright2 = "198844";    # bright green
+        bright3 = "fba922";    # bright yellow
+        bright4 = "3971ed";    # bright blue
+        bright5 = "a36ac7";    # bright magenta
+        bright6 = "3971ed";    # bright cyan
+        bright7 = "ffffff";    # bright white
       };
     };
   };

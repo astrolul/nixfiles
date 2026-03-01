@@ -6,7 +6,9 @@
 }:
 {
 
-  services.blueman.enable = true;
+  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
 
   services.flatpak.enable = true;
 
@@ -39,8 +41,6 @@
       "bluetooth.autoswitch-to-headset-profile" = false;
     };
   };
-
-  services.displayManager.ly.enable = true;
 
   security.rtkit.enable = true;
   services.pipewire = {

@@ -11,7 +11,7 @@
   home.stateVersion = "25.11";
 
   imports = [
-    ../common/hyprland.nix
+    ../common/plasma.nix
   ];
 
   home.packages = with pkgs; [
@@ -44,34 +44,21 @@
     yt-dlp
     statix
     gemini-cli
-    firefox-bin
-    pcmanfm
     xarchiver
     unrar
     nicotine-plus
     gimp3-with-plugins
     bibletime
     kjv
-    tetris
-    gnome-mahjongg
     jp2a
     extremetuxracer
     mangohud
     libreoffice
     qbittorrent
     corefonts
-    foot
-    waybar
-    wofi
-    hyprpaper
-    hypridle
-    slurp
-    grim
     vesktop
     wl-clipboard
     cmatrix
-    wofi-power-menu
-    wofi-emoji
     parsec-bin
     inetutils
     nmap
@@ -86,14 +73,12 @@
     protonvpn-gui
     cider-2
     luanti
-    gajim
     dipc
-    figlet
     bitwarden-desktop
     gcr
     seahorse
-    hyprpicker
     nixfmt
+    telegram-desktop
     (retroarch.withCores (
       cores: with cores; [
         mgba
@@ -103,6 +88,9 @@
   ];
 
   programs = {
+    firefox = {
+      enable = true;
+    };
     chawan = {
       enable = true;
       settings = {
@@ -185,36 +173,5 @@
       '';
     };
   };
-
-  services.gnome-keyring.enable = true;
-
-  services.dunst = {
-    enable = true;
-    configFile = "/home/astrolul/nixos/misc/dunstrc";
-  };
-
-  services.blueman-applet.enable = true;
-
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Gruvbox-Light";
-      package = pkgs.gruvbox-gtk-theme;
-    };
-    font = {
-      name = "FiraCode Nerd Font Regular";
-      size = 11;
-    };
-  };
-
-  home.pointerCursor = {
-    gtk.enable = true; # Ensures GTK apps (including those on Wayland) use this cursor
-    hyprcursor.enable = true; # Registers the cursor for X11 sessions (e.g., root window, WM)
-    name = "Bibata-Original-Ice";
-    package = pkgs.bibata-cursors;
-    size = 24;
-  };
-
-  xdg.configFile."gtk-3.0/settings.ini".force = true;
 
 }

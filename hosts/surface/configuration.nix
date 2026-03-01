@@ -39,7 +39,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "surface"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -52,13 +52,7 @@
   hardware.enableAllFirmware = true;
   hardware.bluetooth.enable = true;
 
-  services.tlp.enable = true;
-
-  qt = {
-    enable = true;
-    platformTheme = "gtk2";
-    #    style.name = "gtk2";
-  };
+  # services.tlp.enable = true;
 
   environment.pathsToLink = [
     "/share/applications"
