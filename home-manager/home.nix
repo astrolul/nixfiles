@@ -25,7 +25,6 @@
     ffmpeg
     tree
     fastfetch
-    pfetch
     htop
     cmus
     nerd-fonts.fira-code
@@ -130,14 +129,6 @@
     fastfetch = {
       enable = true;
     };
-    btop = {
-      enable = true;
-      settings = {
-        color_theme = "gruvbox_light";
-        theme_background = false;
-        truecolor = true;
-      };
-    };
     zsh = {
       enable = true;
       enableCompletion = true;
@@ -151,10 +142,6 @@
         SUDO_EDITOR="nvim"      
 
         export PATH="$HOME/.cargo/bin:$PATH"
-
-        if [[ $DISPLAY =~ ^:[0-9]+$ ]] && command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-          tmux attach-session -t default || tmux new-session -s default
-        fi
       '';
       shellAliases = {
         ls = "ls -la";

@@ -21,9 +21,28 @@
     workspace = {
       clickItemTo = "select";
       lookAndFeel = "org.kde.breezedark.desktop";
-#     cursor.theme = "Bibata-Modern-Ice";
-#      iconTheme = "Papirus-Dark";
-      wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/Patak/contents/images/1080x1920.png";
+      wallpaper = "/home/astrolul/nixos/misc/wallpaper-10.png";
+    };
+
+    session = {
+      sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
+    };
+
+    kwin = {
+      effects = {
+        wobblyWindows.enable = true;
+        translucency.enable = true;
+        blur = {
+          enable = true;
+          strength = 6;
+          noiseStrength = 0;
+        };
+        hideCursor = {
+          enable = true;
+          hideOnInactivity = 5;
+          hideOnTyping = true;
+        };
+      };
     };
 
     hotkeys.commands."launch-konsole" = {
@@ -36,10 +55,12 @@
       # Windows-like panel at the bottom
       {
         location = "top";
+        floating = true;
         widgets = [
           "org.kde.plasma.kickoff"
           "org.kde.plasma.appmenu"
           "org.kde.plasma.panelspacer"
+          "org.kde.plasma.icontasks"
           "org.kde.plasma.marginsseparator"
           "org.kde.plasma.systemtray"
           "org.kde.plasma.digitalclock"
@@ -78,6 +99,7 @@
         # Forces kde to not change this value (even through the settings app).
         immutable = true;
       };
+      "kdeglobals"."General"."accentColorFromWallpaper" = true;
     };
   };
 }
