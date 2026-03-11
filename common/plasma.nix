@@ -29,6 +29,10 @@
     };
 
     kwin = {
+      nightLight = {
+        enable = true;
+        mode = "automatic";
+      };
       effects = {
         wobblyWindows.enable = true;
         translucency.enable = true;
@@ -55,12 +59,13 @@
       # Windows-like panel at the bottom
       {
         location = "top";
+        opacity = "translucent";
         floating = true;
         widgets = [
           "org.kde.plasma.kickoff"
+          "org.kde.plasma.windowlist"
           "org.kde.plasma.appmenu"
           "org.kde.plasma.panelspacer"
-          "org.kde.plasma.icontasks"
           "org.kde.plasma.marginsseparator"
           "org.kde.plasma.systemtray"
           "org.kde.plasma.digitalclock"

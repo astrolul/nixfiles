@@ -19,7 +19,6 @@
     git
     stow
     feh
-    pavucontrol
     flashprog
     pciutils
     ffmpeg
@@ -29,7 +28,6 @@
     cmus
     nerd-fonts.fira-code
     fira-code
-    brightnessctl
     (weechat.override {
       configure =
         { availablePlugins, ... }:
@@ -58,6 +56,7 @@
     vesktop
     wl-clipboard
     cmatrix
+    wireshark
     parsec-bin
     inetutils
     nmap
@@ -75,7 +74,6 @@
     dipc
     bitwarden-desktop
     gcr
-    seahorse
     nixfmt
     telegram-desktop
     (retroarch.withCores (
